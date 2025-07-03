@@ -1,0 +1,1 @@
+pyenv local lean-env
