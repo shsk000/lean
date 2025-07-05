@@ -1,0 +1,127 @@
+# Cursor Rules for Lean Trading Project
+
+## Python Environment Setup
+This project uses pyenv for Python version management and virtual environments.
+
+### Virtual Environment
+- **Environment Name**: `lean-env`
+- **Python Version**: Managed by pyenv
+- **Activation**: `pyenv activate lean-env`
+
+### Required Dependencies
+```bash
+# Activate virtual environment first
+pyenv activate lean-env
+
+# Install required packages
+pip install backtrader yfinance pandas numpy lxml
+```
+
+## Project Structure
+```
+lean/
+├── bt_rsi_gap.py          # RSI Gap Strategy backtesting
+├── .cursorrules           # This file - Cursor configuration
+└── README.md              # Project documentation
+```
+
+## Python Execution Rules
+
+### IMPORTANT: Always activate virtual environment before running Python
+```bash
+# Correct way to run Python scripts
+pyenv activate lean-env && python bt_rsi_gap.py
+
+# Or activate first, then run
+pyenv activate lean-env
+python bt_rsi_gap.py
+```
+
+### RSI Gap Strategy Execution Examples
+
+#### Single Stock Backtesting (Recommended for GUI)
+```bash
+# Basic single stock test
+pyenv activate lean-env && python bt_rsi_gap.py --single AAPL
+
+# With custom date range
+pyenv activate lean-env && python bt_rsi_gap.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
+
+# Without chart display
+pyenv activate lean-env && python bt_rsi_gap.py --single TSLA --no-plot
+```
+
+#### Multi-Stock Backtesting
+```bash
+# Default multi-stock test (S&P500 stocks)
+pyenv activate lean-env && python bt_rsi_gap.py
+
+# With custom parallel workers
+pyenv activate lean-env && python bt_rsi_gap.py --workers 30
+
+# Without chart display
+pyenv activate lean-env && python bt_rsi_gap.py --no-plot
+```
+
+### Common Commands
+```bash
+# Install new packages
+pyenv activate lean-env && pip install <package_name>
+
+# Check Python version
+pyenv activate lean-env && python --version
+
+# List installed packages
+pyenv activate lean-env && pip list
+```
+
+## Strategy Parameters
+- **RSI Period**: 14 days
+- **Max Hold Days**: 5 days
+- **Profit Target**: 5%
+- **Trailing Stop**: 3%
+- **Entry Condition**: Gap < 2% AND 30 < RSI < 40
+
+## Output Files
+### Single Stock
+- `output/single_stock_SYMBOL_results.csv` - Basic results
+- `output/trades_history_SYMBOL.csv` - Trade history
+- `output/detailed_statistics_SYMBOL.csv` - Detailed statistics
+- `output/reason_statistics_SYMBOL.csv` - Exit reason statistics
+
+### Multi-Stock
+- `output/multi_stock_backtest_results.csv` - Basic results
+- `output/trades_history.csv` - Trade history
+- `output/detailed_statistics.csv` - Detailed statistics
+- `output/symbol_statistics.csv` - Per-symbol statistics
+- `output/reason_statistics.csv` - Exit reason statistics
+
+## Code Style Guidelines
+- Use Japanese comments for documentation
+- Follow PEP 8 for Python code style
+- Use descriptive variable names
+- Add type hints where appropriate
+
+## Error Handling
+- Always check for data availability before processing
+- Handle yfinance API errors gracefully
+- Validate data quality (length, missing values)
+- Use proper exception handling
+
+## Backtesting Best Practices
+- Always validate data before running strategies
+- Check for sufficient historical data (minimum 50 days)
+- Filter stocks by volume to ensure liquidity
+- Save results to CSV for analysis
+- Use proper date ranges for testing
+
+## File Naming Convention
+- Use descriptive names with underscores
+- Prefix with `bt_` for backtesting scripts
+- Use `.py` extension for Python files
+
+## Git Workflow
+- Commit changes with descriptive messages
+- Use feature branches for new strategies
+- Keep virtual environment out of version control
+- Document major changes in README.md 
