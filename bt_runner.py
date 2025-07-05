@@ -1,38 +1,42 @@
 """
-RSI Gap Strategy Backtesting Tool
-================================
+汎用バックテスト実行ツール (Backtest Runner)
+========================================
 
-このスクリプトは、RSIとギャップを組み合わせたトレーディング戦略のバックテストを実行します。
+このスクリプトは、任意のトレーディング戦略クラス（strategies/配下）を差し替えて、
+複数銘柄・単一銘柄のバックテストを柔軟に実行できる汎用基盤です。
+
+デフォルトではRSIギャップ戦略（RSIGapStrategy）を使用しますが、
+strategies/ディレクトリに新しい戦略クラスを追加し、差し替えも容易です。
 
 実行方法:
 --------
 
 1. 単一銘柄バックテスト（推奨 - GUI表示が確実）
-   python bt_rsi_gap.py --single AAPL
-   python bt_rsi_gap.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
-   python bt_rsi_gap.py --single TSLA --no-plot  # チャート表示なし
+   python bt_runner.py --single AAPL
+   python bt_runner.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
+   python bt_runner.py --single TSLA --no-plot  # チャート表示なし
 
 2. 複数銘柄バックテスト（S&P500銘柄から自動選択）
-   python bt_rsi_gap.py
-   python bt_rsi_gap.py --workers 30  # 並列処理数を変更
-   python bt_rsi_gap.py --no-plot     # チャート表示なし
+   python bt_runner.py
+   python bt_runner.py --workers 30  # 並列処理数を変更
+   python bt_runner.py --no-plot     # チャート表示なし
 
 コマンドライン引数:
 ------------------
 --single SYMBOL     : 単一銘柄でバックテスト（例: AAPL, MSFT, TSLA）
 --start-date DATE   : 開始日（デフォルト: 2021-01-01）
 --end-date DATE     : 終了日（デフォルト: 2023-01-01）
---no-plot          : チャート表示を無効化
---workers N        : 並列処理数（デフォルト: 20）
---limit            : テストする最大銘柄数（例: 20）
+--no-plot           : チャート表示を無効化
+--workers N         : 並列処理数（デフォルト: 20）
+--limit             : テストする最大銘柄数（例: 20）
 
-戦略パラメータ:
---------------
+戦略パラメータ例（RSIGapStrategy）:
+------------------------------
 - RSI期間: 14日
-- 最大保有日数: 15日
-- 利確目標: 2%
-- トレーリングストップ: 1.5%
-- エントリー条件: ギャップ < 5% かつ RSI 20-50
+- 最大保有日数: 5日
+- 利確目標: 5%
+- トレーリングストップ: 3%
+- エントリー条件: ギャップ < 2% かつ RSI 30-40
 
 出力ファイル:
 ------------
@@ -66,6 +70,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import argparse
 import os
+from strategies.rsi_gap_strategy import RSIGapStrategy
 
 # 日本語フォント設定（Linux環境用）
 plt.rcParams['font.family'] = 'DejaVu Sans'
@@ -79,74 +84,6 @@ def ensure_output_dir():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
         print(f"出力ディレクトリ '{OUTPUT_DIR}' を作成しました")
-
-class RSIGapStrategy(bt.Strategy):
-    params = (
-        ('rsi_period', 14),
-        ('max_hold_days', 15),
-        ('profit_target', 0.02),
-        ('trailing_stop', 0.015),
-    )
-
-    def __init__(self):
-        self.rsi_list = [bt.indicators.RSI(d.close, period=self.p.rsi_period) for d in self.datas]
-        self.orders = [None] * len(self.datas)
-        self.entry_prices = [None] * len(self.datas)
-        self.entry_bars = [None] * len(self.datas)
-        self.highest_prices = [None] * len(self.datas)
-        self.trades = []  # 取引履歴を保存
-        self.entry_attempts = [0] * len(self.datas)
-        self.entry_successes = [0] * len(self.datas)
-        self.debug_entries = [[] for _ in self.datas]
-
-    def next(self):
-        for i, data in enumerate(self.datas):
-            if not self.getposition(data).size:
-                if len(data) < 2:
-                    continue
-                gap = (data.open[0] - data.close[-1]) / data.close[-1]
-                rsi_value = self.rsi_list[i][0]
-                if gap < 0.10 and 15 < rsi_value < 60:
-                    self.entry_attempts[i] += 1
-                    size = int(self.broker.get_cash() / data.open[0] / len(self.datas))
-                    if size > 0:
-                        self.orders[i] = self.buy(data=data, size=size)
-                        self.entry_prices[i] = data.open[0]
-                        self.entry_bars[i] = len(self)
-                        self.highest_prices[i] = data.open[0]
-                        self.entry_successes[i] += 1
-                        self.debug_entries[i].append(f"{data._name}: エントリー成功 (ギャップ: {gap:.3f}, RSI: {rsi_value:.1f})")
-            else:
-                price = data.close[0]
-                if price > self.highest_prices[i]:
-                    self.highest_prices[i] = price
-                if price >= self.entry_prices[i] * (1 + self.p.profit_target):
-                    self.close(data=data)
-                    self.trades.append({
-                        'symbol': data._name,
-                        'entry_price': self.entry_prices[i],
-                        'exit_price': price,
-                        'return': (price - self.entry_prices[i]) / self.entry_prices[i] * 100,
-                        'exit_reason': 'profit_target'
-                    })
-                elif price <= self.highest_prices[i] * (1 - self.p.trailing_stop):
-                    self.close(data=data)
-                    self.trades.append({
-                        'symbol': data._name,
-                        'entry_price': self.entry_prices[i],
-                        'exit_price': price,
-                        'return': (price - self.entry_prices[i]) / self.entry_prices[i] * 100,
-                        'exit_reason': 'trailing_stop'
-                    })
-                elif len(self) - self.entry_bars[i] >= self.p.max_hold_days:
-                    self.close(data=data)
-                    self.trades.append({
-                        'symbol': data._name,
-                        'entry_price': self.entry_prices[i],
-                        'exit_price': price,
-                        'return': (price - self.entry_prices[i]) / self.entry_prices[i] * 100,
-                        'exit_reason': 'max_hold_days'
-                    })
 
 class CompatibleCerebro(bt.Cerebro):
     """backtraderの互換性問題を解決するCerebroクラス"""

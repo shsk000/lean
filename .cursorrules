@@ -30,11 +30,11 @@ lean/
 ### IMPORTANT: Always activate virtual environment before running Python
 ```bash
 # Correct way to run Python scripts
-pyenv activate lean-env && python bt_rsi_gap.py
+pyenv activate lean-env && python bt_runner.py
 
 # Or activate first, then run
 pyenv activate lean-env
-python bt_rsi_gap.py
+python bt_runner.py
 ```
 
 ### RSI Gap Strategy Execution Examples
@@ -42,25 +42,25 @@ python bt_rsi_gap.py
 #### Single Stock Backtesting (Recommended for GUI)
 ```bash
 # Basic single stock test
-pyenv activate lean-env && python bt_rsi_gap.py --single AAPL
+pyenv activate lean-env && python bt_runner.py --single AAPL
 
 # With custom date range
-pyenv activate lean-env && python bt_rsi_gap.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
+pyenv activate lean-env && python bt_runner.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
 
 # Without chart display
-pyenv activate lean-env && python bt_rsi_gap.py --single TSLA --no-plot
+pyenv activate lean-env && python bt_runner.py --single TSLA --no-plot
 ```
 
 #### Multi-Stock Backtesting
 ```bash
 # Default multi-stock test (S&P500 stocks)
-pyenv activate lean-env && python bt_rsi_gap.py
+pyenv activate lean-env && python bt_runner.py
 
 # With custom parallel workers
-pyenv activate lean-env && python bt_rsi_gap.py --workers 30
+pyenv activate lean-env && python bt_runner.py --workers 30
 
 # Without chart display
-pyenv activate lean-env && python bt_rsi_gap.py --no-plot
+pyenv activate lean-env && python bt_runner.py --no-plot
 ```
 
 ### Common Commands
@@ -125,3 +125,44 @@ pyenv activate lean-env && pip list
 - Use feature branches for new strategies
 - Keep virtual environment out of version control
 - Document major changes in README.md 
+
+# strategies ディレクトリに追加する戦略クラスの要件・実装ガイドライン
+
+## 構成・役割
+- 各戦略は strategies/ ディレクトリ内に個別の Python ファイルとして実装する（例: rsi_gap_strategy.py, ma_cross_strategy.py など）
+- 各ファイル内で1つの戦略クラスを定義し、backtrader.Strategy を継承する
+- クラス名は PascalCase で命名し、ファイル名と対応させる（例: RSIGapStrategy, MACrossStrategy）
+- 必要に応じて __init__.py でインポートを管理
+
+## 戦略クラスの実装要件
+- backtrader.Strategy を継承する
+- __init__ メソッドでインジケータやパラメータを初期化
+- next メソッドで売買ロジックを記述
+- 複数銘柄対応のため self.datas をループして各データに対して判定・注文を行う
+- 必要に応じて notify_order（注文の発注・約定・キャンセル等の状態変化を検知するイベントハンドラ）、notify_trade（トレード成立時の損益計算やログ出力を行うイベントハンドラ）などのイベントハンドラを実装
+- パラメータはクラス属性 params で定義（例: params = (('rsi_period', 14), ...)）
+- 日本語コメントでロジックを説明
+- PEP8に準拠し、型ヒントも適宜付与
+
+## 効果計測・出力
+- バックテスト結果（損益、勝率、トレード数など）は bt_runner.py 側で集計・出力されるため、戦略クラス側では必要に応じて self.log などで補助的な出力のみ
+- 取引履歴や詳細統計は bt_runner.py 側で自動保存される
+
+---
+
+# AIに strategies 用の戦略クラス作成を依頼する際の指示例
+
+---
+
+以下の要件に従い、backtrader.Strategy を継承した新しい戦略クラスを strategies/ ディレクトリ用に作成してください。
+
+- クラス名は PascalCase で命名し、ファイル名と一致させてください（例: MACrossStrategy → ma_cross_strategy.py）
+- 複数銘柄対応のため self.datas をループして各データごとに判定・注文を行ってください
+- __init__ でインジケータやパラメータを初期化し、params でパラメータを定義してください
+- next メソッドで売買ロジックを記述してください
+- 必要に応じて notify_order（注文の発注・約定・キャンセル等の状態変化を検知するイベントハンドラ）、notify_trade（トレード成立時の損益計算やログ出力を行うイベントハンドラ）も実装してください
+- 日本語コメントでロジックを説明してください
+- PEP8に準拠し、型ヒントも付与してください
+- strategies/ ディレクトリ配下の単一ファイルとして実装してください
+
+--- 
