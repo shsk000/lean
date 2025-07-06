@@ -13,7 +13,7 @@ strategies/ディレクトリに新しい戦略クラスを追加し、差し替
 
 1. 単一銘柄バックテスト（推奨 - GUI表示が確実）
    python bt_runner.py --single AAPL
-   python bt_runner.py --single MSFT --start-date 2022-01-01 --end-date 2023-01-01
+   python bt_runner.py --single MSFT --start-date 2020-01-01 --end-date 2022-12-31
    python bt_runner.py --single TSLA --no-plot  # チャート表示なし
 
 2. 複数銘柄バックテスト（S&P500銘柄から自動選択）
@@ -24,8 +24,8 @@ strategies/ディレクトリに新しい戦略クラスを追加し、差し替
 コマンドライン引数:
 ------------------
 --single SYMBOL     : 単一銘柄でバックテスト（例: AAPL, MSFT, TSLA）
---start-date DATE   : 開始日（デフォルト: 2021-01-01）
---end-date DATE     : 終了日（デフォルト: 2023-01-01）
+--start-date DATE   : 開始日（デフォルト: 2012-01-01）
+--end-date DATE     : 終了日（デフォルト: 2022-12-31）
 --no-plot           : チャート表示を無効化
 --workers N         : 並列処理数（デフォルト: 20）
 --limit             : テストする最大銘柄数（例: 20）
@@ -72,6 +72,7 @@ import argparse
 import os
 from strategies.rsi_gap_strategy import RSIGapStrategy
 from strategies.hybrid_momentum_reversion_strategy import HybridMomentumReversionStrategy
+from data_loader import LocalDataLoader
 
 # 日本語フォント設定（Linux環境用）
 plt.rcParams['font.family'] = 'DejaVu Sans'
@@ -96,20 +97,17 @@ class CompatibleCerebro(bt.Cerebro):
         if not hasattr(self, '_plotting'):
             self._plotting = True
 
-def get_sp500_symbols():
-    """S&P500の銘柄リストを取得（完全決定的版）"""
-    # 完全な決定性を保証するため、データ取得が確実に成功する銘柄のみを使用
-    print("データ取得が確実に成功する厳選された銘柄リストを使用中...")
-    
-    # 過去のテストで確実に動作することが確認された銘柄のみ
-    reliable_symbols = [
-        'AAPL', 'MSFT', 'GOOGL', 'NVDA', 'TSLA', 'META', 'NFLX',
-        'AMD', 'INTC', 'JPM', 'JNJ', 'UNH', 'PG', 'HD', 'MA', 
-        'DIS', 'XOM', 'V', 'WMT', 'KO', 'PFE', 'MRK', 'CSCO',
-        'ABT', 'COST', 'NKE', 'TXN', 'HON', 'LOW', 'CVX', 'MDT'
-    ]
-    
-    return sorted(reliable_symbols)
+def get_local_symbols():
+    """ローカルデータから利用可能な銘柄リストを取得"""
+    try:
+        loader = LocalDataLoader()
+        symbols = loader.get_available_symbols()
+        print(f"ローカルデータから {len(symbols)} 銘柄を取得しました")
+        return symbols
+    except Exception as e:
+        print(f"✗ ローカルデータの読み込みに失敗しました: {e}")
+        print("data_collector.py を実行してデータを準備してください")
+        exit(1)
 
 def download_stock_data(symbol, start_date, end_date):
     """個別銘柄のデータをダウンロード"""
@@ -145,29 +143,22 @@ def download_stock_data(symbol, start_date, end_date):
     except Exception as e:
         return symbol, None, f"エラー: {e}"
 
-def filter_high_volume_stocks_parallel(symbols, min_avg_volume=1000000, start_date='2021-01-01', end_date='2023-01-01', max_workers=10):
-    """並列処理で出来高の多い銘柄をフィルタリング（決定的）"""
-    # 入力銘柄リストをソートして決定的にする
-    sorted_symbols = sorted(symbols)
-    results = []
-    
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_symbol = {
-            executor.submit(download_stock_data, symbol, start_date, end_date): symbol 
-            for symbol in sorted_symbols
-        }
-        for future in as_completed(future_to_symbol):
-            symbol, avg_volume, status = future.result()
-            results.append((symbol, avg_volume, status))
-    
-    # 結果をシンボル名でソートして決定的な順序を保証
-    results.sort(key=lambda x: x[0])
-    
-    # フィルタリング結果をソート済みリストで返す
-    high_volume_symbols = [symbol for symbol, avg_volume, status in results 
-                          if status == "成功" and avg_volume >= min_avg_volume]
-    
-    return sorted(high_volume_symbols)
+def get_high_volume_symbols_from_local_data(max_symbols=None):
+    """ローカルデータから高出来高銘柄を取得"""
+    try:
+        loader = LocalDataLoader()
+        symbols = loader.get_available_symbols()
+        
+        if max_symbols and len(symbols) > max_symbols:
+            symbols = symbols[:max_symbols]
+            print(f"銘柄数を {max_symbols} に制限しました")
+        
+        print(f"高出来高銘柄 {len(symbols)} 銘柄をローカルデータから取得")
+        return symbols
+        
+    except Exception as e:
+        print(f"✗ ローカルデータからの銘柄取得に失敗: {e}")
+        exit(1)
 
 def download_backtest_data(symbol, start_date, end_date):
     """バックテスト用のデータをダウンロード（単一銘柄用にカラムを正規化）"""
@@ -239,7 +230,7 @@ def download_backtest_data(symbol, start_date, end_date):
     except Exception as e:
         return symbol, None, f"エラー: {e}"
 
-def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date='2023-01-01', initial_cash=100000, max_workers=10, show_plot=True):
+def run_multi_stock_backtest_parallel(symbols, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, max_workers=10, show_plot=True):
     """並列処理で複数銘柄のバックテストを実行"""
     start_time = time.time()
     
@@ -259,33 +250,35 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
         'trailing_stop': 0.03   # 3%
     }
     
-    print(f"並列処理でデータ取得中...")
+    print(f"ローカルデータからデータ読み込み中...")
     print(f"期間: {start_date} から {end_date}")
     print(f"処理銘柄数: {len(symbols)}")
     
-    # 並列処理でデータをダウンロード
-    successful_symbols = []
-    failed_symbols = []
-    
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_symbol = {
-            executor.submit(download_backtest_data, symbol, start_date, end_date): symbol 
-            for symbol in symbols
-        }
-        completed = 0
-        for future in as_completed(future_to_symbol):
-            symbol, df, status = future.result()
-            completed += 1
-            if status == "成功":
-                data = bt.feeds.PandasData(dataname=df, name=symbol)
-                cerebro.adddata(data)
+    # ローカルデータローダーを使用
+    try:
+        loader = LocalDataLoader()
+        loader.validate_date_range(start_date, end_date)
+        
+        successful_symbols = []
+        for symbol in symbols:
+            try:
+                data_feed = loader.create_backtrader_data(symbol, start_date, end_date)
+                cerebro.adddata(data_feed)
                 successful_symbols.append(symbol)
-            else:
-                failed_symbols.append(symbol)
-    
-    print(f"データ取得完了: {time.time() - start_time:.1f}秒")
-    print(f"成功した銘柄数: {len(successful_symbols)}")
-    print(f"失敗した銘柄数: {len(failed_symbols)}")
+            except SystemExit:
+                # 厳格なエラーハンドリング：データ失敗時は即座に終了
+                raise
+            except Exception as e:
+                print(f"✗ [{symbol}] データ読み込み失敗: {e}")
+                print("データの整合性に問題があります。処理を終了します。")
+                exit(1)
+        
+        print(f"データ読み込み完了: {time.time() - start_time:.1f}秒")
+        print(f"成功した銘柄数: {len(successful_symbols)}")
+        
+    except Exception as e:
+        print(f"✗ ローカルデータの読み込みに失敗: {e}")
+        exit(1)
     
     if len(successful_symbols) == 0:
         print("❌ バックテスト可能な銘柄がありません")
@@ -355,7 +348,7 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
     print(f"[DEBUG] === 取引履歴収集完了 ===\n")
     
     # 結果の表示と保存
-    display_results(initial_cash, final_value, total_return, profit, len(symbols), len(all_trades), time.time() - start_time, all_trades, successful_symbols, failed_symbols, show_plot)
+    display_results(initial_cash, final_value, total_return, profit, len(symbols), len(all_trades), time.time() - start_time, all_trades, successful_symbols, [], show_plot)
     
     return {
         'initial_value': initial_cash,
@@ -367,7 +360,7 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
         'total_time': time.time() - start_time
     }
 
-def run_single_stock_backtest(symbol, start_date='2021-01-01', end_date='2023-01-01', initial_cash=100000, show_plot=True):
+def run_single_stock_backtest(symbol, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, show_plot=True):
     """単一銘柄のバックテストを実行"""
     cerebro = CompatibleCerebro()
     cerebro.addstrategy(HybridMomentumReversionStrategy)
@@ -375,83 +368,15 @@ def run_single_stock_backtest(symbol, start_date='2021-01-01', end_date='2023-01
     print(f"\n{symbol}のデータ取得中...")
     
     try:
-        # データ取得
-        df = yf.download(symbol, start=start_date, end=end_date, auto_adjust=False, progress=False)
-        if df.empty or len(df) < 50:
-            print(f"✗ データが取得できませんでした または データが不足しています ({len(df)}日)")
-            return None
+        # ローカルデータローダーを使用
+        loader = LocalDataLoader()
+        loader.validate_date_range(start_date, end_date)
         
-        df.dropna(inplace=True)
-        if len(df) < 50:
-            print(f"✗ データが不足しています ({len(df)}日)")
-            return None
+        # データをCerebroに追加（LocalDataLoaderが整合性チェック済み）
+        data_feed = loader.create_backtrader_data(symbol, start_date, end_date)
+        cerebro.adddata(data_feed)
         
-        # カラム名を文字列に変換（タプルの場合があるため）
-        df.columns = [str(col) for col in df.columns]
-        
-        # デバッグ: カラム名の詳細情報を表示
-        print(f"DEBUG {symbol}: カラム名 = {list(df.columns)}")
-        
-        # タプル形式のカラム名を処理（例：('Open', 'EMR') → 'Open'）
-        new_columns = []
-        for col in df.columns:
-            if col.startswith("('") and col.endswith("')"):
-                # タプル形式の場合、最初の要素を抽出
-                try:
-                    # タプル文字列を解析
-                    col_clean = col.strip("()'\"")
-                    if ',' in col_clean:
-                        # カンマで分割して最初の要素を取得
-                        first_part = col_clean.split(',')[0].strip().strip("'\"")
-                        new_columns.append(first_part)
-                    else:
-                        new_columns.append(col)
-                except:
-                    new_columns.append(col)
-            else:
-                new_columns.append(col)
-        
-        # カラム名を更新
-        df.columns = new_columns
-        
-        # カラム名のマッピング（大文字小文字の違いに対応）
-        column_mapping = {
-            'open': 'Open',
-            'high': 'High', 
-            'low': 'Low',
-            'close': 'Close',
-            'volume': 'Volume',
-            'adj close': 'Adj Close',
-            'adj_close': 'Adj Close'
-        }
-        
-        # カラム名を正規化
-        normalized_columns = []
-        for col in df.columns:
-            col_lower = col.lower()
-            if col_lower in column_mapping:
-                normalized_columns.append(column_mapping[col_lower])
-            else:
-                normalized_columns.append(col)
-        
-        df.columns = normalized_columns
-        
-        # 必要なカラムが存在するかチェック
-        required_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
-        missing_columns = [col for col in required_columns if col not in df.columns]
-        
-        if missing_columns:
-            print(f"✗ 必要なカラムが不足: {missing_columns} (利用可能: {list(df.columns)})")
-            return None
-        
-        # 必要なカラムだけ抽出
-        df = df[required_columns]
-        
-        # データをCerebroに追加
-        data = bt.feeds.PandasData(dataname=df, name=symbol)
-        cerebro.adddata(data)
-        
-        print(f"✓ データ追加完了 ({len(df)}日)")
+        print(f"✓ ローカルデータ読み込み完了")
         
     except Exception as e:
         print(f"✗ エラー: {e}")
@@ -638,8 +563,8 @@ def main():
     parser.add_argument('--no-plot', action='store_true', help='チャート表示を無効化')
     parser.add_argument('--workers', type=int, default=20, help='並列処理数（デフォルト: 20）')
     parser.add_argument('--single', type=str, help='単一銘柄でバックテスト（例: AAPL）')
-    parser.add_argument('--start-date', type=str, default='2021-01-01', help='開始日（デフォルト: 2021-01-01）')
-    parser.add_argument('--end-date', type=str, default='2023-01-01', help='終了日（デフォルト: 2023-01-01）')
+    parser.add_argument('--start-date', type=str, default='2012-01-01', help='開始日（デフォルト: 2012-01-01）')
+    parser.add_argument('--end-date', type=str, default='2022-12-31', help='終了日（デフォルト: 2022-12-31）')
     parser.add_argument('--limit', type=int, default=None, help='テストする最大銘柄数（例: 20）')
     args = parser.parse_args()
     
@@ -683,14 +608,13 @@ def main():
         # 複数銘柄バックテスト（既存の処理）
         # S&P500銘柄を取得
         print("S&P500銘柄リストを取得中...")
-        all_symbols = get_sp500_symbols()
+        all_symbols = get_local_symbols()
         print(f"取得銘柄数: {len(all_symbols)}")
         
-        # 完全決定性のため、出来高フィルタリングを無効化
-        print("[INFO] 完全決定性のため、出来高フィルタリングを無効化します")
-        print("[INFO] 厳選された信頼性の高い銘柄のみを使用します")
+        # ローカルデータから高出来高銘柄を取得
+        print("[INFO] ローカルデータから高出来高銘柄を使用します")
         
-        high_volume_symbols = sorted(all_symbols)  # ソートして決定的順序を保証
+        high_volume_symbols = get_high_volume_symbols_from_local_data(max_symbols=args.limit)
         
         if not high_volume_symbols:
             print("条件を満たす銘柄が見つかりませんでした。")

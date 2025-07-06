@@ -1,0 +1,3012 @@
+{
+  "symbols": [
+    "A",
+    "AAPL",
+    "ABBV",
+    "ABNB",
+    "ABT",
+    "ACGL",
+    "ACN",
+    "ADBE",
+    "ADI",
+    "ADM",
+    "ADP",
+    "ADSK",
+    "AEE",
+    "AEP",
+    "AES",
+    "AFL",
+    "AIG",
+    "AKAM",
+    "ALB",
+    "ALL",
+    "AMAT",
+    "AMCR",
+    "AMD",
+    "AME",
+    "AMGN",
+    "AMP",
+    "AMT",
+    "AMZN",
+    "ANET",
+    "AON",
+    "AOS",
+    "APA",
+    "APD",
+    "APH",
+    "APO",
+    "APTV",
+    "AVGO",
+    "AXP",
+    "BA",
+    "BAC",
+    "BALL",
+    "BAX",
+    "BBY",
+    "BDX",
+    "BEN",
+    "BF-B",
+    "BG",
+    "BIIB",
+    "BK",
+    "BKR",
+    "BLDR",
+    "BMY",
+    "BRK-B",
+    "BRO",
+    "BSX",
+    "BX",
+    "C",
+    "CAG",
+    "CAH",
+    "CARR",
+    "CAT",
+    "CB",
+    "CBRE",
+    "CCI",
+    "CCL",
+    "CDNS",
+    "CEG",
+    "CF",
+    "CFG",
+    "CHD",
+    "CHRW",
+    "CHTR",
+    "CI",
+    "CL",
+    "CLX",
+    "CMCSA",
+    "CME",
+    "CMG",
+    "CMI",
+    "CMS",
+    "CNC",
+    "CNP",
+    "COF",
+    "COIN",
+    "COO",
+    "COP",
+    "COR",
+    "COST",
+    "CPB",
+    "CPRT",
+    "CRM",
+    "CRWD",
+    "CSCO",
+    "CSGP",
+    "CSX",
+    "CTAS",
+    "CTRA",
+    "CTSH",
+    "CTVA",
+    "CVS",
+    "CVX",
+    "CZR",
+    "D",
+    "DAL",
+    "DASH",
+    "DAY",
+    "DD",
+    "DE",
+    "DECK",
+    "DELL",
+    "DG",
+    "DGX",
+    "DHI",
+    "DHR",
+    "DIS",
+    "DLR",
+    "DLTR",
+    "DOC",
+    "DOV",
+    "DOW",
+    "DRI",
+    "DTE",
+    "DUK",
+    "DVA",
+    "DVN",
+    "DXCM",
+    "EA",
+    "EBAY",
+    "ECL",
+    "ED",
+    "EIX",
+    "EL",
+    "ELV",
+    "EMN",
+    "EMR",
+    "ENPH",
+    "EOG",
+    "EQR",
+    "EQT",
+    "ES",
+    "ETN",
+    "ETR",
+    "EVRG",
+    "EW",
+    "EXC",
+    "EXE",
+    "EXPD",
+    "EXPE",
+    "F",
+    "FANG",
+    "FAST",
+    "FCX",
+    "FDX",
+    "FE",
+    "FI",
+    "FIS",
+    "FITB",
+    "FOX",
+    "FOXA",
+    "FSLR",
+    "FTNT",
+    "FTV",
+    "GD",
+    "GDDY",
+    "GE",
+    "GEN",
+    "GILD",
+    "GIS",
+    "GLW",
+    "GM",
+    "GOOG",
+    "GOOGL",
+    "GPN",
+    "GRMN",
+    "GS",
+    "HAL",
+    "HAS",
+    "HBAN",
+    "HCA",
+    "HD",
+    "HES",
+    "HIG",
+    "HLT",
+    "HOLX",
+    "HON",
+    "HPE",
+    "HPQ",
+    "HRL",
+    "HSIC",
+    "HST",
+    "HSY",
+    "HUM",
+    "HWM",
+    "IBM",
+    "ICE",
+    "INCY",
+    "INTC",
+    "INTU",
+    "INVH",
+    "IP",
+    "IPG",
+    "IQV",
+    "IR",
+    "IRM",
+    "ISRG",
+    "ITW",
+    "IVZ",
+    "J",
+    "JBL",
+    "JCI",
+    "JNJ",
+    "JPM",
+    "K",
+    "KDP",
+    "KEY",
+    "KEYS",
+    "KHC",
+    "KIM",
+    "KKR",
+    "KLAC",
+    "KMB",
+    "KMI",
+    "KMX",
+    "KO",
+    "KR",
+    "L",
+    "LDOS",
+    "LEN",
+    "LIN",
+    "LKQ",
+    "LLY",
+    "LMT",
+    "LNT",
+    "LOW",
+    "LRCX",
+    "LULU",
+    "LUV",
+    "LVS",
+    "LW",
+    "LYB",
+    "LYV",
+    "MA",
+    "MAR",
+    "MAS",
+    "MCD",
+    "MCHP",
+    "MCK",
+    "MCO",
+    "MDLZ",
+    "MDT",
+    "MET",
+    "META",
+    "MGM",
+    "MKC",
+    "MMC",
+    "MMM",
+    "MNST",
+    "MO",
+    "MOS",
+    "MPC",
+    "MRK",
+    "MRNA",
+    "MS",
+    "MSFT",
+    "MSI",
+    "MTCH",
+    "MU",
+    "NCLH",
+    "NDAQ",
+    "NEE",
+    "NEM",
+    "NFLX",
+    "NI",
+    "NKE",
+    "NOC",
+    "NOW",
+    "NRG",
+    "NSC",
+    "NTAP",
+    "NTRS",
+    "NUE",
+    "NVDA",
+    "NWSA",
+    "NXPI",
+    "O",
+    "ODFL",
+    "OKE",
+    "OMC",
+    "ON",
+    "ORCL",
+    "ORLY",
+    "OTIS",
+    "OXY",
+    "PANW",
+    "PARA",
+    "PAYX",
+    "PCAR",
+    "PCG",
+    "PEG",
+    "PEP"
+  ],
+  "total_count": 300,
+  "selection_criteria": {
+    "min_avg_volume": 1000000,
+    "data_period": "2012-01-01 to 2022-12-31",
+    "source": "S&P 500"
+  },
+  "data_details": [
+    {
+      "symbol": "A",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2570523.148482659,
+      "median_volume": 2101800.0,
+      "csv_path": "data/stocks/A.csv"
+    },
+    {
+      "symbol": "AAPL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 203552600.07225433,
+      "median_volume": 139522000.0,
+      "csv_path": "data/stocks/AAPL.csv"
+    },
+    {
+      "symbol": "ABBV",
+      "data_points": 2518,
+      "start_date": "2013-01-02",
+      "end_date": "2022-12-30",
+      "avg_volume": 7755894.440031772,
+      "median_volume": 6585250.0,
+      "csv_path": "data/stocks/ABBV.csv"
+    },
+    {
+      "symbol": "ABNB",
+      "data_points": 518,
+      "start_date": "2020-12-10",
+      "end_date": "2022-12-30",
+      "avg_volume": 6739822.200772201,
+      "median_volume": 5392600.0,
+      "csv_path": "data/stocks/ABNB.csv"
+    },
+    {
+      "symbol": "ABT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7188191.352962428,
+      "median_volume": 5907700.0,
+      "csv_path": "data/stocks/ABT.csv"
+    },
+    {
+      "symbol": "ACGL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1612908.6705202311,
+      "median_volume": 1349050.0,
+      "csv_path": "data/stocks/ACGL.csv"
+    },
+    {
+      "symbol": "ACN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2475326.264450867,
+      "median_volume": 2199300.0,
+      "csv_path": "data/stocks/ACN.csv"
+    },
+    {
+      "symbol": "ADBE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3100606.7919075144,
+      "median_volume": 2683250.0,
+      "csv_path": "data/stocks/ADBE.csv"
+    },
+    {
+      "symbol": "ADI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2725766.5101156067,
+      "median_volume": 2377550.0,
+      "csv_path": "data/stocks/ADI.csv"
+    },
+    {
+      "symbol": "ADM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3551387.9335260116,
+      "median_volume": 3158750.0,
+      "csv_path": "data/stocks/ADM.csv"
+    },
+    {
+      "symbol": "ADP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2063848.415101156,
+      "median_volume": 1826785.5,
+      "csv_path": "data/stocks/ADP.csv"
+    },
+    {
+      "symbol": "ADSK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2189175.108381503,
+      "median_volume": 1821750.0,
+      "csv_path": "data/stocks/ADSK.csv"
+    },
+    {
+      "symbol": "AEE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1552218.6416184972,
+      "median_volume": 1413150.0,
+      "csv_path": "data/stocks/AEE.csv"
+    },
+    {
+      "symbol": "AEP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2864078.540462428,
+      "median_volume": 2580750.0,
+      "csv_path": "data/stocks/AEP.csv"
+    },
+    {
+      "symbol": "AES",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5650322.832369942,
+      "median_volume": 5155700.0,
+      "csv_path": "data/stocks/AES.csv"
+    },
+    {
+      "symbol": "AFL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4041495.773121387,
+      "median_volume": 3528550.0,
+      "csv_path": "data/stocks/AFL.csv"
+    },
+    {
+      "symbol": "AIG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8062629.87716763,
+      "median_volume": 6116400.0,
+      "csv_path": "data/stocks/AIG.csv"
+    },
+    {
+      "symbol": "AKAM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2026353.9378612717,
+      "median_volume": 1605350.0,
+      "csv_path": "data/stocks/AKAM.csv"
+    },
+    {
+      "symbol": "ALB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1251647.6878612717,
+      "median_volume": 1075300.0,
+      "csv_path": "data/stocks/ALB.csv"
+    },
+    {
+      "symbol": "ALL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2362556.1054913295,
+      "median_volume": 2053400.0,
+      "csv_path": "data/stocks/ALL.csv"
+    },
+    {
+      "symbol": "AMAT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11508296.02601156,
+      "median_volume": 10337350.0,
+      "csv_path": "data/stocks/AMAT.csv"
+    },
+    {
+      "symbol": "AMCR",
+      "data_points": 2676,
+      "start_date": "2012-05-15",
+      "end_date": "2022-12-30",
+      "avg_volume": 2540386.7339312406,
+      "median_volume": 0.0,
+      "csv_path": "data/stocks/AMCR.csv"
+    },
+    {
+      "symbol": "AMD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 48554414.70375723,
+      "median_volume": 40112950.0,
+      "csv_path": "data/stocks/AMD.csv"
+    },
+    {
+      "symbol": "AME",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1220510.5852601156,
+      "median_volume": 1045500.0,
+      "csv_path": "data/stocks/AME.csv"
+    },
+    {
+      "symbol": "AMGN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3355559.573699422,
+      "median_volume": 2934700.0,
+      "csv_path": "data/stocks/AMGN.csv"
+    },
+    {
+      "symbol": "AMP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1031855.563583815,
+      "median_volume": 915400.0,
+      "csv_path": "data/stocks/AMP.csv"
+    },
+    {
+      "symbol": "AMT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2152122.290462428,
+      "median_volume": 1941000.0,
+      "csv_path": "data/stocks/AMT.csv"
+    },
+    {
+      "symbol": "AMZN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 80593638.11416185,
+      "median_volume": 69097000.0,
+      "csv_path": "data/stocks/AMZN.csv"
+    },
+    {
+      "symbol": "ANET",
+      "data_points": 2159,
+      "start_date": "2014-06-06",
+      "end_date": "2022-12-30",
+      "avg_volume": 11837112.737378417,
+      "median_volume": 9721600.0,
+      "csv_path": "data/stocks/ANET.csv"
+    },
+    {
+      "symbol": "AON",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1334076.8786127167,
+      "median_volume": 1152500.0,
+      "csv_path": "data/stocks/AON.csv"
+    },
+    {
+      "symbol": "AOS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1355537.0664739884,
+      "median_volume": 1112850.0,
+      "csv_path": "data/stocks/AOS.csv"
+    },
+    {
+      "symbol": "APA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5653729.985549133,
+      "median_volume": 4254900.0,
+      "csv_path": "data/stocks/APA.csv"
+    },
+    {
+      "symbol": "APD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1253751.8876445086,
+      "median_volume": 1069725.0,
+      "csv_path": "data/stocks/APD.csv"
+    },
+    {
+      "symbol": "APH",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5248757.00867052,
+      "median_volume": 4687500.0,
+      "csv_path": "data/stocks/APH.csv"
+    },
+    {
+      "symbol": "APO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1437750.1445086705,
+      "median_volume": 1065600.0,
+      "csv_path": "data/stocks/APO.csv"
+    },
+    {
+      "symbol": "APTV",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2241765.5888728322,
+      "median_volume": 1911441.5,
+      "csv_path": "data/stocks/APTV.csv"
+    },
+    {
+      "symbol": "AVGO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 27109716.763005782,
+      "median_volume": 22487000.0,
+      "csv_path": "data/stocks/AVGO.csv"
+    },
+    {
+      "symbol": "AXP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4450813.11416185,
+      "median_volume": 3840950.0,
+      "csv_path": "data/stocks/AXP.csv"
+    },
+    {
+      "symbol": "BA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7721644.111271677,
+      "median_volume": 4575850.0,
+      "csv_path": "data/stocks/BA.csv"
+    },
+    {
+      "symbol": "BAC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 87163157.18930636,
+      "median_volume": 69264100.0,
+      "csv_path": "data/stocks/BAC.csv"
+    },
+    {
+      "symbol": "BALL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2278865.534682081,
+      "median_volume": 1986200.0,
+      "csv_path": "data/stocks/BALL.csv"
+    },
+    {
+      "symbol": "BAX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4370334.233381503,
+      "median_volume": 3571000.0,
+      "csv_path": "data/stocks/BAX.csv"
+    },
+    {
+      "symbol": "BBY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4779460.729768787,
+      "median_volume": 3614300.0,
+      "csv_path": "data/stocks/BBY.csv"
+    },
+    {
+      "symbol": "BDX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1228940.5209537572,
+      "median_volume": 1089626.5,
+      "csv_path": "data/stocks/BDX.csv"
+    },
+    {
+      "symbol": "BEN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2925555.563583815,
+      "median_volume": 2572250.0,
+      "csv_path": "data/stocks/BEN.csv"
+    },
+    {
+      "symbol": "BF-B",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1145060.4768786128,
+      "median_volume": 964875.0,
+      "csv_path": "data/stocks/BF-B.csv"
+    },
+    {
+      "symbol": "BG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1211658.7066473989,
+      "median_volume": 1050600.0,
+      "csv_path": "data/stocks/BG.csv"
+    },
+    {
+      "symbol": "BIIB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1574378.9739884394,
+      "median_volume": 1309700.0,
+      "csv_path": "data/stocks/BIIB.csv"
+    },
+    {
+      "symbol": "BK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5462422.507225433,
+      "median_volume": 4977200.0,
+      "csv_path": "data/stocks/BK.csv"
+    },
+    {
+      "symbol": "BKR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5541946.134393063,
+      "median_volume": 4456500.0,
+      "csv_path": "data/stocks/BKR.csv"
+    },
+    {
+      "symbol": "BLDR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1257244.617052023,
+      "median_volume": 979950.0,
+      "csv_path": "data/stocks/BLDR.csv"
+    },
+    {
+      "symbol": "BMY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 10080862.644508671,
+      "median_volume": 8576900.0,
+      "csv_path": "data/stocks/BMY.csv"
+    },
+    {
+      "symbol": "BRK-B",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4158515.7875722544,
+      "median_volume": 3731200.0,
+      "csv_path": "data/stocks/BRK-B.csv"
+    },
+    {
+      "symbol": "BRO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1390511.632947977,
+      "median_volume": 1166050.0,
+      "csv_path": "data/stocks/BRO.csv"
+    },
+    {
+      "symbol": "BSX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 10066693.171965318,
+      "median_volume": 8410000.0,
+      "csv_path": "data/stocks/BSX.csv"
+    },
+    {
+      "symbol": "BX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4509573.302023121,
+      "median_volume": 3846550.0,
+      "csv_path": "data/stocks/BX.csv"
+    },
+    {
+      "symbol": "C",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 22251115.53468208,
+      "median_volume": 19201450.0,
+      "csv_path": "data/stocks/C.csv"
+    },
+    {
+      "symbol": "CAG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4307619.847543352,
+      "median_volume": 3681527.0,
+      "csv_path": "data/stocks/CAG.csv"
+    },
+    {
+      "symbol": "CAH",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2618280.852601156,
+      "median_volume": 2281850.0,
+      "csv_path": "data/stocks/CAH.csv"
+    },
+    {
+      "symbol": "CARR",
+      "data_points": 703,
+      "start_date": "2020-03-19",
+      "end_date": "2022-12-30",
+      "avg_volume": 5573775.960170697,
+      "median_volume": 4409600.0,
+      "csv_path": "data/stocks/CARR.csv"
+    },
+    {
+      "symbol": "CAT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4916424.819364162,
+      "median_volume": 4357100.0,
+      "csv_path": "data/stocks/CAT.csv"
+    },
+    {
+      "symbol": "CB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1682903.1430635839,
+      "median_volume": 1477950.0,
+      "csv_path": "data/stocks/CB.csv"
+    },
+    {
+      "symbol": "CBRE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2128463.8367052022,
+      "median_volume": 1856850.0,
+      "csv_path": "data/stocks/CBRE.csv"
+    },
+    {
+      "symbol": "CCI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2209524.8193641617,
+      "median_volume": 1918250.0,
+      "csv_path": "data/stocks/CCI.csv"
+    },
+    {
+      "symbol": "CCL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 14913175.975433527,
+      "median_volume": 4371400.0,
+      "csv_path": "data/stocks/CCL.csv"
+    },
+    {
+      "symbol": "CDNS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2417467.8106936417,
+      "median_volume": 2040050.0,
+      "csv_path": "data/stocks/CDNS.csv"
+    },
+    {
+      "symbol": "CEG",
+      "data_points": 240,
+      "start_date": "2022-01-19",
+      "end_date": "2022-12-30",
+      "avg_volume": 2542062.5,
+      "median_volume": 2118850.0,
+      "csv_path": "data/stocks/CEG.csv"
+    },
+    {
+      "symbol": "CF",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3850985.079479769,
+      "median_volume": 3242650.0,
+      "csv_path": "data/stocks/CF.csv"
+    },
+    {
+      "symbol": "CFG",
+      "data_points": 2083,
+      "start_date": "2014-09-24",
+      "end_date": "2022-12-30",
+      "avg_volume": 5000379.548727796,
+      "median_volume": 4324100.0,
+      "csv_path": "data/stocks/CFG.csv"
+    },
+    {
+      "symbol": "CHD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1587967.1604046242,
+      "median_volume": 1378650.0,
+      "csv_path": "data/stocks/CHD.csv"
+    },
+    {
+      "symbol": "CHRW",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1453437.8612716764,
+      "median_volume": 1249500.0,
+      "csv_path": "data/stocks/CHRW.csv"
+    },
+    {
+      "symbol": "CHTR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1333847.5433526011,
+      "median_volume": 1092950.0,
+      "csv_path": "data/stocks/CHTR.csv"
+    },
+    {
+      "symbol": "CI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1960328.323699422,
+      "median_volume": 1675450.0,
+      "csv_path": "data/stocks/CI.csv"
+    },
+    {
+      "symbol": "CL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3752515.24566474,
+      "median_volume": 3377900.0,
+      "csv_path": "data/stocks/CL.csv"
+    },
+    {
+      "symbol": "CLX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1132523.735549133,
+      "median_volume": 964050.0,
+      "csv_path": "data/stocks/CLX.csv"
+    },
+    {
+      "symbol": "CMCSA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 23092721.64017341,
+      "median_volume": 20777450.0,
+      "csv_path": "data/stocks/CMCSA.csv"
+    },
+    {
+      "symbol": "CME",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1721534.8265895953,
+      "median_volume": 1505800.0,
+      "csv_path": "data/stocks/CME.csv"
+    },
+    {
+      "symbol": "CMG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 33058296.604046244,
+      "median_volume": 23480000.0,
+      "csv_path": "data/stocks/CMG.csv"
+    },
+    {
+      "symbol": "CMI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1522405.8887283236,
+      "median_volume": 1301100.0,
+      "csv_path": "data/stocks/CMI.csv"
+    },
+    {
+      "symbol": "CMS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2244960.476878613,
+      "median_volume": 2047750.0,
+      "csv_path": "data/stocks/CMS.csv"
+    },
+    {
+      "symbol": "CNC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3615411.2716763006,
+      "median_volume": 2903400.0,
+      "csv_path": "data/stocks/CNC.csv"
+    },
+    {
+      "symbol": "CNP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4396750.433526011,
+      "median_volume": 3781100.0,
+      "csv_path": "data/stocks/CNP.csv"
+    },
+    {
+      "symbol": "COF",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3194206.141618497,
+      "median_volume": 2773550.0,
+      "csv_path": "data/stocks/COF.csv"
+    },
+    {
+      "symbol": "COIN",
+      "data_points": 434,
+      "start_date": "2021-04-14",
+      "end_date": "2022-12-30",
+      "avg_volume": 9035520.737327188,
+      "median_volume": 6463650.0,
+      "csv_path": "data/stocks/COIN.csv"
+    },
+    {
+      "symbol": "COO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1575390.1734104047,
+      "median_volume": 1324600.0,
+      "csv_path": "data/stocks/COO.csv"
+    },
+    {
+      "symbol": "COP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7861653.550216763,
+      "median_volume": 6929550.0,
+      "csv_path": "data/stocks/COP.csv"
+    },
+    {
+      "symbol": "COR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1740969.7615606936,
+      "median_volume": 1496200.0,
+      "csv_path": "data/stocks/COR.csv"
+    },
+    {
+      "symbol": "COST",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2333978.3598265895,
+      "median_volume": 2028350.0,
+      "csv_path": "data/stocks/COST.csv"
+    },
+    {
+      "symbol": "CPB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2222200.794797688,
+      "median_volume": 1882450.0,
+      "csv_path": "data/stocks/CPB.csv"
+    },
+    {
+      "symbol": "CPRT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5447789.306358381,
+      "median_volume": 4423000.0,
+      "csv_path": "data/stocks/CPRT.csv"
+    },
+    {
+      "symbol": "CRM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6167410.404624278,
+      "median_volume": 5117600.0,
+      "csv_path": "data/stocks/CRM.csv"
+    },
+    {
+      "symbol": "CRWD",
+      "data_points": 897,
+      "start_date": "2019-06-12",
+      "end_date": "2022-12-30",
+      "avg_volume": 4372953.065774805,
+      "median_volume": 3583400.0,
+      "csv_path": "data/stocks/CRWD.csv"
+    },
+    {
+      "symbol": "CSCO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 26963300.93930636,
+      "median_volume": 22967600.0,
+      "csv_path": "data/stocks/CSCO.csv"
+    },
+    {
+      "symbol": "CSGP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2123820.520231214,
+      "median_volume": 1800400.0,
+      "csv_path": "data/stocks/CSGP.csv"
+    },
+    {
+      "symbol": "CSX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 19741939.05346821,
+      "median_volume": 16814400.0,
+      "csv_path": "data/stocks/CSX.csv"
+    },
+    {
+      "symbol": "CTAS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2312992.052023121,
+      "median_volume": 1966600.0,
+      "csv_path": "data/stocks/CTAS.csv"
+    },
+    {
+      "symbol": "CTRA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6916251.51734104,
+      "median_volume": 5996900.0,
+      "csv_path": "data/stocks/CTRA.csv"
+    },
+    {
+      "symbol": "CTSH",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4078919.4002890172,
+      "median_volume": 3449600.0,
+      "csv_path": "data/stocks/CTSH.csv"
+    },
+    {
+      "symbol": "CTVA",
+      "data_points": 909,
+      "start_date": "2019-05-24",
+      "end_date": "2022-12-30",
+      "avg_volume": 4132114.521452145,
+      "median_volume": 3549500.0,
+      "csv_path": "data/stocks/CTVA.csv"
+    },
+    {
+      "symbol": "CVS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6683809.862716763,
+      "median_volume": 5802100.0,
+      "csv_path": "data/stocks/CVS.csv"
+    },
+    {
+      "symbol": "CVX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7985975.252890173,
+      "median_volume": 6869800.0,
+      "csv_path": "data/stocks/CVX.csv"
+    },
+    {
+      "symbol": "CZR",
+      "data_points": 2085,
+      "start_date": "2014-09-22",
+      "end_date": "2022-12-30",
+      "avg_volume": 1891059.856115108,
+      "median_volume": 938800.0,
+      "csv_path": "data/stocks/CZR.csv"
+    },
+    {
+      "symbol": "D",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3150941.221098266,
+      "median_volume": 2765300.0,
+      "csv_path": "data/stocks/D.csv"
+    },
+    {
+      "symbol": "DAL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 12357853.937861271,
+      "median_volume": 9945950.0,
+      "csv_path": "data/stocks/DAL.csv"
+    },
+    {
+      "symbol": "DASH",
+      "data_points": 519,
+      "start_date": "2020-12-09",
+      "end_date": "2022-12-30",
+      "avg_volume": 4518210.98265896,
+      "median_volume": 3763800.0,
+      "csv_path": "data/stocks/DASH.csv"
+    },
+    {
+      "symbol": "DAY",
+      "data_points": 1180,
+      "start_date": "2018-04-26",
+      "end_date": "2022-12-30",
+      "avg_volume": 1173618.559322034,
+      "median_volume": 905350.0,
+      "csv_path": "data/stocks/DAY.csv"
+    },
+    {
+      "symbol": "DD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5575417.127890173,
+      "median_volume": 4747238.0,
+      "csv_path": "data/stocks/DD.csv"
+    },
+    {
+      "symbol": "DE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2597190.354046243,
+      "median_volume": 2268050.0,
+      "csv_path": "data/stocks/DE.csv"
+    },
+    {
+      "symbol": "DECK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4876373.62716763,
+      "median_volume": 3341100.0,
+      "csv_path": "data/stocks/DECK.csv"
+    },
+    {
+      "symbol": "DELL",
+      "data_points": 1605,
+      "start_date": "2016-08-17",
+      "end_date": "2022-12-30",
+      "avg_volume": 5537233.442367601,
+      "median_volume": 4197500.0,
+      "csv_path": "data/stocks/DELL.csv"
+    },
+    {
+      "symbol": "DG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2939131.7919075144,
+      "median_volume": 2336850.0,
+      "csv_path": "data/stocks/DG.csv"
+    },
+    {
+      "symbol": "DGX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1246506.539017341,
+      "median_volume": 1063550.0,
+      "csv_path": "data/stocks/DGX.csv"
+    },
+    {
+      "symbol": "DHI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4936918.641618497,
+      "median_volume": 4245350.0,
+      "csv_path": "data/stocks/DHI.csv"
+    },
+    {
+      "symbol": "DHR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3806486.8428468206,
+      "median_volume": 3151858.5,
+      "csv_path": "data/stocks/DHR.csv"
+    },
+    {
+      "symbol": "DIS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 9377680.888728324,
+      "median_volume": 7771050.0,
+      "csv_path": "data/stocks/DIS.csv"
+    },
+    {
+      "symbol": "DLR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1491413.367052023,
+      "median_volume": 1248950.0,
+      "csv_path": "data/stocks/DLR.csv"
+    },
+    {
+      "symbol": "DLTR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2639437.6445086705,
+      "median_volume": 2161300.0,
+      "csv_path": "data/stocks/DLTR.csv"
+    },
+    {
+      "symbol": "DOC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3517754.0354046244,
+      "median_volume": 3155750.0,
+      "csv_path": "data/stocks/DOC.csv"
+    },
+    {
+      "symbol": "DOV",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1469272.4732658959,
+      "median_volume": 1244251.0,
+      "csv_path": "data/stocks/DOV.csv"
+    },
+    {
+      "symbol": "DOW",
+      "data_points": 955,
+      "start_date": "2019-03-20",
+      "end_date": "2022-12-30",
+      "avg_volume": 5207239.685863874,
+      "median_volume": 4690500.0,
+      "csv_path": "data/stocks/DOW.csv"
+    },
+    {
+      "symbol": "DRI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1739793.1578757225,
+      "median_volume": 1464632.5,
+      "csv_path": "data/stocks/DRI.csv"
+    },
+    {
+      "symbol": "DTE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1231400.8265895953,
+      "median_volume": 1100388.0,
+      "csv_path": "data/stocks/DTE.csv"
+    },
+    {
+      "symbol": "DUK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3313229.0809248555,
+      "median_volume": 2985300.0,
+      "csv_path": "data/stocks/DUK.csv"
+    },
+    {
+      "symbol": "DVA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1385049.313583815,
+      "median_volume": 1130800.0,
+      "csv_path": "data/stocks/DVA.csv"
+    },
+    {
+      "symbol": "DVN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7003686.596820809,
+      "median_volume": 5786700.0,
+      "csv_path": "data/stocks/DVN.csv"
+    },
+    {
+      "symbol": "DXCM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3693364.848265896,
+      "median_volume": 2974200.0,
+      "csv_path": "data/stocks/DXCM.csv"
+    },
+    {
+      "symbol": "EA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3774727.2760115606,
+      "median_volume": 3074150.0,
+      "csv_path": "data/stocks/EA.csv"
+    },
+    {
+      "symbol": "EBAY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 14980590.233742775,
+      "median_volume": 10900150.0,
+      "csv_path": "data/stocks/EBAY.csv"
+    },
+    {
+      "symbol": "ECL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1234836.813583815,
+      "median_volume": 1045200.0,
+      "csv_path": "data/stocks/ECL.csv"
+    },
+    {
+      "symbol": "ED",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1973070.6286127167,
+      "median_volume": 1731950.0,
+      "csv_path": "data/stocks/ED.csv"
+    },
+    {
+      "symbol": "EIX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2166047.290462428,
+      "median_volume": 1890100.0,
+      "csv_path": "data/stocks/EIX.csv"
+    },
+    {
+      "symbol": "EL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1754044.328034682,
+      "median_volume": 1556550.0,
+      "csv_path": "data/stocks/EL.csv"
+    },
+    {
+      "symbol": "ELV",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1779222.5433526011,
+      "median_volume": 1508600.0,
+      "csv_path": "data/stocks/ELV.csv"
+    },
+    {
+      "symbol": "EMN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1298510.549132948,
+      "median_volume": 1143650.0,
+      "csv_path": "data/stocks/EMN.csv"
+    },
+    {
+      "symbol": "EMR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3510662.5361271678,
+      "median_volume": 3190150.0,
+      "csv_path": "data/stocks/EMR.csv"
+    },
+    {
+      "symbol": "ENPH",
+      "data_points": 2707,
+      "start_date": "2012-03-30",
+      "end_date": "2022-12-30",
+      "avg_volume": 1975624.7137052086,
+      "median_volume": 1107000.0,
+      "csv_path": "data/stocks/ENPH.csv"
+    },
+    {
+      "symbol": "EOG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4105997.940751445,
+      "median_volume": 3707950.0,
+      "csv_path": "data/stocks/EOG.csv"
+    },
+    {
+      "symbol": "EQR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1946737.5361271675,
+      "median_volume": 1752100.0,
+      "csv_path": "data/stocks/EQR.csv"
+    },
+    {
+      "symbol": "EQT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4926091.443641619,
+      "median_volume": 3924199.5,
+      "csv_path": "data/stocks/EQT.csv"
+    },
+    {
+      "symbol": "ES",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1657778.2875722544,
+      "median_volume": 1494000.0,
+      "csv_path": "data/stocks/ES.csv"
+    },
+    {
+      "symbol": "ETN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2684366.040462428,
+      "median_volume": 2364300.0,
+      "csv_path": "data/stocks/ETN.csv"
+    },
+    {
+      "symbol": "ETR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2736462.427745665,
+      "median_volume": 2481500.0,
+      "csv_path": "data/stocks/ETR.csv"
+    },
+    {
+      "symbol": "EVRG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1288324.0606936417,
+      "median_volume": 1032850.0,
+      "csv_path": "data/stocks/EVRG.csv"
+    },
+    {
+      "symbol": "EW",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5003055.49132948,
+      "median_volume": 4074900.0,
+      "csv_path": "data/stocks/EW.csv"
+    },
+    {
+      "symbol": "EXC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8752477.087789018,
+      "median_volume": 7767921.0,
+      "csv_path": "data/stocks/EXC.csv"
+    },
+    {
+      "symbol": "EXE",
+      "data_points": 477,
+      "start_date": "2021-02-10",
+      "end_date": "2022-12-30",
+      "avg_volume": 1665588.4696016773,
+      "median_volume": 1491200.0,
+      "csv_path": "data/stocks/EXE.csv"
+    },
+    {
+      "symbol": "EXPD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1360345.7731213872,
+      "median_volume": 1185350.0,
+      "csv_path": "data/stocks/EXPD.csv"
+    },
+    {
+      "symbol": "EXPE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2548289.234104046,
+      "median_volume": 2055450.0,
+      "csv_path": "data/stocks/EXPE.csv"
+    },
+    {
+      "symbol": "F",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 48017825.79479769,
+      "median_volume": 40058150.0,
+      "csv_path": "data/stocks/F.csv"
+    },
+    {
+      "symbol": "FANG",
+      "data_points": 2571,
+      "start_date": "2012-10-12",
+      "end_date": "2022-12-30",
+      "avg_volume": 1806034.3057176196,
+      "median_volume": 1473300.0,
+      "csv_path": "data/stocks/FANG.csv"
+    },
+    {
+      "symbol": "FAST",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 9019000.433526011,
+      "median_volume": 7670800.0,
+      "csv_path": "data/stocks/FAST.csv"
+    },
+    {
+      "symbol": "FCX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 21607060.874277458,
+      "median_volume": 18053500.0,
+      "csv_path": "data/stocks/FCX.csv"
+    },
+    {
+      "symbol": "FDX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2179532.1893063583,
+      "median_volume": 1820150.0,
+      "csv_path": "data/stocks/FDX.csv"
+    },
+    {
+      "symbol": "FE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4067069.2196531794,
+      "median_volume": 3475350.0,
+      "csv_path": "data/stocks/FE.csv"
+    },
+    {
+      "symbol": "FI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2969807.8395953756,
+      "median_volume": 2463000.0,
+      "csv_path": "data/stocks/FI.csv"
+    },
+    {
+      "symbol": "FIS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2434967.9190751445,
+      "median_volume": 1873350.0,
+      "csv_path": "data/stocks/FIS.csv"
+    },
+    {
+      "symbol": "FITB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7115369.653179191,
+      "median_volume": 6330500.0,
+      "csv_path": "data/stocks/FITB.csv"
+    },
+    {
+      "symbol": "FOX",
+      "data_points": 960,
+      "start_date": "2019-03-13",
+      "end_date": "2022-12-30",
+      "avg_volume": 1389167.0833333333,
+      "median_volume": 1172750.0,
+      "csv_path": "data/stocks/FOX.csv"
+    },
+    {
+      "symbol": "FOXA",
+      "data_points": 961,
+      "start_date": "2019-03-12",
+      "end_date": "2022-12-30",
+      "avg_volume": 4054288.4495317377,
+      "median_volume": 3537300.0,
+      "csv_path": "data/stocks/FOXA.csv"
+    },
+    {
+      "symbol": "FSLR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2959268.7861271678,
+      "median_volume": 2133400.0,
+      "csv_path": "data/stocks/FSLR.csv"
+    },
+    {
+      "symbol": "FTNT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 9114089.703757225,
+      "median_volume": 7293500.0,
+      "csv_path": "data/stocks/FTNT.csv"
+    },
+    {
+      "symbol": "FTV",
+      "data_points": 1636,
+      "start_date": "2016-07-05",
+      "end_date": "2022-12-30",
+      "avg_volume": 3236850.0385085572,
+      "median_volume": 2546580.0,
+      "csv_path": "data/stocks/FTV.csv"
+    },
+    {
+      "symbol": "GD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1493298.3742774567,
+      "median_volume": 1317550.0,
+      "csv_path": "data/stocks/GD.csv"
+    },
+    {
+      "symbol": "GDDY",
+      "data_points": 1954,
+      "start_date": "2015-03-31",
+      "end_date": "2022-12-30",
+      "avg_volume": 1296851.074718526,
+      "median_volume": 1067500.0,
+      "csv_path": "data/stocks/GDDY.csv"
+    },
+    {
+      "symbol": "GE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11700313.397760116,
+      "median_volume": 9217919.0,
+      "csv_path": "data/stocks/GE.csv"
+    },
+    {
+      "symbol": "GEN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6840878.143063583,
+      "median_volume": 5743800.0,
+      "csv_path": "data/stocks/GEN.csv"
+    },
+    {
+      "symbol": "GILD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 10382696.893063584,
+      "median_volume": 8773550.0,
+      "csv_path": "data/stocks/GILD.csv"
+    },
+    {
+      "symbol": "GIS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3792852.3121387283,
+      "median_volume": 3366700.0,
+      "csv_path": "data/stocks/GIS.csv"
+    },
+    {
+      "symbol": "GLW",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8096906.611271677,
+      "median_volume": 6609550.0,
+      "csv_path": "data/stocks/GLW.csv"
+    },
+    {
+      "symbol": "GM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 14279226.51734104,
+      "median_volume": 12510100.0,
+      "csv_path": "data/stocks/GM.csv"
+    },
+    {
+      "symbol": "GOOG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 45473818.9450867,
+      "median_volume": 32904000.0,
+      "csv_path": "data/stocks/GOOG.csv"
+    },
+    {
+      "symbol": "GOOGL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 48365284.716763005,
+      "median_volume": 36108000.0,
+      "csv_path": "data/stocks/GOOGL.csv"
+    },
+    {
+      "symbol": "GPN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1604684.862716763,
+      "median_volume": 1331950.0,
+      "csv_path": "data/stocks/GPN.csv"
+    },
+    {
+      "symbol": "GRMN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1144808.6705202311,
+      "median_volume": 946300.0,
+      "csv_path": "data/stocks/GRMN.csv"
+    },
+    {
+      "symbol": "GS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3301806.25,
+      "median_volume": 2904650.0,
+      "csv_path": "data/stocks/GS.csv"
+    },
+    {
+      "symbol": "HAL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11768744.400289018,
+      "median_volume": 10215000.0,
+      "csv_path": "data/stocks/HAL.csv"
+    },
+    {
+      "symbol": "HAS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1284972.8323699422,
+      "median_volume": 1058100.0,
+      "csv_path": "data/stocks/HAS.csv"
+    },
+    {
+      "symbol": "HBAN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11174369.400289018,
+      "median_volume": 9893850.0,
+      "csv_path": "data/stocks/HBAN.csv"
+    },
+    {
+      "symbol": "HCA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2580066.040462428,
+      "median_volume": 2073400.0,
+      "csv_path": "data/stocks/HCA.csv"
+    },
+    {
+      "symbol": "HD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5429243.424855491,
+      "median_volume": 4643300.0,
+      "csv_path": "data/stocks/HD.csv"
+    },
+    {
+      "symbol": "HES",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3346797.543352601,
+      "median_volume": 2930800.0,
+      "csv_path": "data/stocks/HES.csv"
+    },
+    {
+      "symbol": "HIG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3189872.0375722544,
+      "median_volume": 2510900.0,
+      "csv_path": "data/stocks/HIG.csv"
+    },
+    {
+      "symbol": "HLT",
+      "data_points": 2279,
+      "start_date": "2013-12-12",
+      "end_date": "2022-12-30",
+      "avg_volume": 2826591.6164984643,
+      "median_volume": 2311800.0,
+      "csv_path": "data/stocks/HLT.csv"
+    },
+    {
+      "symbol": "HOLX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2423025.7225433527,
+      "median_volume": 2031150.0,
+      "csv_path": "data/stocks/HOLX.csv"
+    },
+    {
+      "symbol": "HON",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3140490.6329479767,
+      "median_volume": 2857832.0,
+      "csv_path": "data/stocks/HON.csv"
+    },
+    {
+      "symbol": "HPE",
+      "data_points": 1814,
+      "start_date": "2015-10-19",
+      "end_date": "2022-12-30",
+      "avg_volume": 12981654.702315325,
+      "median_volume": 11138500.0,
+      "csv_path": "data/stocks/HPE.csv"
+    },
+    {
+      "symbol": "HPQ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 20382854.06069364,
+      "median_volume": 13381950.0,
+      "csv_path": "data/stocks/HPQ.csv"
+    },
+    {
+      "symbol": "HRL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2161702.3843930634,
+      "median_volume": 1869150.0,
+      "csv_path": "data/stocks/HRL.csv"
+    },
+    {
+      "symbol": "HSIC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1301981.681719653,
+      "median_volume": 1072849.0,
+      "csv_path": "data/stocks/HSIC.csv"
+    },
+    {
+      "symbol": "HST",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7880678.757225433,
+      "median_volume": 7189500.0,
+      "csv_path": "data/stocks/HST.csv"
+    },
+    {
+      "symbol": "HSY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1097326.3005780347,
+      "median_volume": 972850.0,
+      "csv_path": "data/stocks/HSY.csv"
+    },
+    {
+      "symbol": "HUM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1284196.5317919075,
+      "median_volume": 1049750.0,
+      "csv_path": "data/stocks/HUM.csv"
+    },
+    {
+      "symbol": "HWM",
+      "data_points": 1552,
+      "start_date": "2016-11-01",
+      "end_date": "2022-12-30",
+      "avg_volume": 3574826.1597938146,
+      "median_volume": 3076350.0,
+      "csv_path": "data/stocks/HWM.csv"
+    },
+    {
+      "symbol": "IBM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4794682.990968208,
+      "median_volume": 4112296.5,
+      "csv_path": "data/stocks/IBM.csv"
+    },
+    {
+      "symbol": "ICE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3202226.4089595377,
+      "median_volume": 2774100.0,
+      "csv_path": "data/stocks/ICE.csv"
+    },
+    {
+      "symbol": "INCY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1561314.053468208,
+      "median_volume": 1310450.0,
+      "csv_path": "data/stocks/INCY.csv"
+    },
+    {
+      "symbol": "INTC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 30970939.414739884,
+      "median_volume": 27533300.0,
+      "csv_path": "data/stocks/INTC.csv"
+    },
+    {
+      "symbol": "INTU",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1631427.9985549133,
+      "median_volume": 1449900.0,
+      "csv_path": "data/stocks/INTU.csv"
+    },
+    {
+      "symbol": "INVH",
+      "data_points": 1490,
+      "start_date": "2017-02-01",
+      "end_date": "2022-12-30",
+      "avg_volume": 3437240.33557047,
+      "median_volume": 2925250.0,
+      "csv_path": "data/stocks/INVH.csv"
+    },
+    {
+      "symbol": "IP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3409407.7583092484,
+      "median_volume": 3073797.0,
+      "csv_path": "data/stocks/IP.csv"
+    },
+    {
+      "symbol": "IPG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4464094.219653179,
+      "median_volume": 3864350.0,
+      "csv_path": "data/stocks/IPG.csv"
+    },
+    {
+      "symbol": "IQV",
+      "data_points": 2430,
+      "start_date": "2013-05-09",
+      "end_date": "2022-12-30",
+      "avg_volume": 1078337.6543209876,
+      "median_volume": 920000.0,
+      "csv_path": "data/stocks/IQV.csv"
+    },
+    {
+      "symbol": "IR",
+      "data_points": 1420,
+      "start_date": "2017-05-12",
+      "end_date": "2022-12-30",
+      "avg_volume": 2100638.0985915493,
+      "median_volume": 1685150.0,
+      "csv_path": "data/stocks/IR.csv"
+    },
+    {
+      "symbol": "IRM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1970596.1734104047,
+      "median_volume": 1610650.0,
+      "csv_path": "data/stocks/IRM.csv"
+    },
+    {
+      "symbol": "ISRG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2787413.87283237,
+      "median_volume": 2265150.0,
+      "csv_path": "data/stocks/ISRG.csv"
+    },
+    {
+      "symbol": "ITW",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1617397.6517341041,
+      "median_volume": 1394550.0,
+      "csv_path": "data/stocks/ITW.csv"
+    },
+    {
+      "symbol": "IVZ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4151791.7630057805,
+      "median_volume": 3666900.0,
+      "csv_path": "data/stocks/IVZ.csv"
+    },
+    {
+      "symbol": "J",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1146691.756864162,
+      "median_volume": 1001511.0,
+      "csv_path": "data/stocks/J.csv"
+    },
+    {
+      "symbol": "JBL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1944930.2384393064,
+      "median_volume": 1559100.0,
+      "csv_path": "data/stocks/JBL.csv"
+    },
+    {
+      "symbol": "JCI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4398526.501806359,
+      "median_volume": 3853285.0,
+      "csv_path": "data/stocks/JCI.csv"
+    },
+    {
+      "symbol": "JNJ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7929138.150289018,
+      "median_volume": 7161000.0,
+      "csv_path": "data/stocks/JNJ.csv"
+    },
+    {
+      "symbol": "JPM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 17232289.667630058,
+      "median_volume": 14510850.0,
+      "csv_path": "data/stocks/JPM.csv"
+    },
+    {
+      "symbol": "K",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2337298.1156069366,
+      "median_volume": 2035588.0,
+      "csv_path": "data/stocks/K.csv"
+    },
+    {
+      "symbol": "KDP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2934272.2182080923,
+      "median_volume": 1742850.0,
+      "csv_path": "data/stocks/KDP.csv"
+    },
+    {
+      "symbol": "KEY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11061658.489884393,
+      "median_volume": 9998400.0,
+      "csv_path": "data/stocks/KEY.csv"
+    },
+    {
+      "symbol": "KEYS",
+      "data_points": 2065,
+      "start_date": "2014-10-20",
+      "end_date": "2022-12-30",
+      "avg_volume": 1168452.1549636803,
+      "median_volume": 924500.0,
+      "csv_path": "data/stocks/KEYS.csv"
+    },
+    {
+      "symbol": "KHC",
+      "data_points": 1888,
+      "start_date": "2015-07-06",
+      "end_date": "2022-12-30",
+      "avg_volume": 5881412.18220339,
+      "median_volume": 5079000.0,
+      "csv_path": "data/stocks/KHC.csv"
+    },
+    {
+      "symbol": "KIM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3962479.6604046244,
+      "median_volume": 3467450.0,
+      "csv_path": "data/stocks/KIM.csv"
+    },
+    {
+      "symbol": "KKR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2930013.475433526,
+      "median_volume": 2499300.0,
+      "csv_path": "data/stocks/KKR.csv"
+    },
+    {
+      "symbol": "KLAC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1580025.7225433525,
+      "median_volume": 1377800.0,
+      "csv_path": "data/stocks/KLAC.csv"
+    },
+    {
+      "symbol": "KMB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1923345.121748555,
+      "median_volume": 1730725.0,
+      "csv_path": "data/stocks/KMB.csv"
+    },
+    {
+      "symbol": "KMI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 13466473.374277456,
+      "median_volume": 12145100.0,
+      "csv_path": "data/stocks/KMI.csv"
+    },
+    {
+      "symbol": "KMX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1839856.2138728325,
+      "median_volume": 1515200.0,
+      "csv_path": "data/stocks/KMX.csv"
+    },
+    {
+      "symbol": "KO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 14390705.202312138,
+      "median_volume": 13067250.0,
+      "csv_path": "data/stocks/KO.csv"
+    },
+    {
+      "symbol": "KR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8988728.070809249,
+      "median_volume": 7713300.0,
+      "csv_path": "data/stocks/KR.csv"
+    },
+    {
+      "symbol": "L",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1051735.7658959539,
+      "median_volume": 936800.0,
+      "csv_path": "data/stocks/L.csv"
+    },
+    {
+      "symbol": "LDOS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1000818.7084537572,
+      "median_volume": 794350.0,
+      "csv_path": "data/stocks/LDOS.csv"
+    },
+    {
+      "symbol": "LEN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3707549.003251445,
+      "median_volume": 3152830.0,
+      "csv_path": "data/stocks/LEN.csv"
+    },
+    {
+      "symbol": "LIN",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1590383.3453757225,
+      "median_volume": 1356550.0,
+      "csv_path": "data/stocks/LIN.csv"
+    },
+    {
+      "symbol": "LKQ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1986586.5968208092,
+      "median_volume": 1673300.0,
+      "csv_path": "data/stocks/LKQ.csv"
+    },
+    {
+      "symbol": "LLY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4757568.460982659,
+      "median_volume": 3850150.0,
+      "csv_path": "data/stocks/LLY.csv"
+    },
+    {
+      "symbol": "LMT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1522675.6141618497,
+      "median_volume": 1288800.0,
+      "csv_path": "data/stocks/LMT.csv"
+    },
+    {
+      "symbol": "LNT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1305793.9667630058,
+      "median_volume": 1158750.0,
+      "csv_path": "data/stocks/LNT.csv"
+    },
+    {
+      "symbol": "LOW",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6067624.819364162,
+      "median_volume": 4821950.0,
+      "csv_path": "data/stocks/LOW.csv"
+    },
+    {
+      "symbol": "LRCX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 22288898.843930636,
+      "median_volume": 19078000.0,
+      "csv_path": "data/stocks/LRCX.csv"
+    },
+    {
+      "symbol": "LULU",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2282521.856936416,
+      "median_volume": 1747050.0,
+      "csv_path": "data/stocks/LULU.csv"
+    },
+    {
+      "symbol": "LUV",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7159362.64450867,
+      "median_volume": 6134850.0,
+      "csv_path": "data/stocks/LUV.csv"
+    },
+    {
+      "symbol": "LVS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5761554.552023121,
+      "median_volume": 4933900.0,
+      "csv_path": "data/stocks/LVS.csv"
+    },
+    {
+      "symbol": "LW",
+      "data_points": 1545,
+      "start_date": "2016-11-10",
+      "end_date": "2022-12-30",
+      "avg_volume": 1318399.2233009709,
+      "median_volume": 1048400.0,
+      "csv_path": "data/stocks/LW.csv"
+    },
+    {
+      "symbol": "LYB",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3040640.317919075,
+      "median_volume": 2671500.0,
+      "csv_path": "data/stocks/LYB.csv"
+    },
+    {
+      "symbol": "LYV",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1621980.8164739884,
+      "median_volume": 1220650.0,
+      "csv_path": "data/stocks/LYV.csv"
+    },
+    {
+      "symbol": "MA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4681433.706647399,
+      "median_volume": 3921750.0,
+      "csv_path": "data/stocks/MA.csv"
+    },
+    {
+      "symbol": "MAR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2629739.0895953756,
+      "median_volume": 2226500.0,
+      "csv_path": "data/stocks/MAR.csv"
+    },
+    {
+      "symbol": "MAS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3842693.483381503,
+      "median_volume": 3255700.0,
+      "csv_path": "data/stocks/MAS.csv"
+    },
+    {
+      "symbol": "MCD",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4429704.11849711,
+      "median_volume": 3867350.0,
+      "csv_path": "data/stocks/MCD.csv"
+    },
+    {
+      "symbol": "MCHP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4745572.615606937,
+      "median_volume": 4029550.0,
+      "csv_path": "data/stocks/MCHP.csv"
+    },
+    {
+      "symbol": "MCK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1547923.2658959539,
+      "median_volume": 1271400.0,
+      "csv_path": "data/stocks/MCK.csv"
+    },
+    {
+      "symbol": "MCO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1051427.7817919075,
+      "median_volume": 867650.0,
+      "csv_path": "data/stocks/MCO.csv"
+    },
+    {
+      "symbol": "MDLZ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8402477.167630058,
+      "median_volume": 7418800.0,
+      "csv_path": "data/stocks/MDLZ.csv"
+    },
+    {
+      "symbol": "MDT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 5450119.002890173,
+      "median_volume": 4794550.0,
+      "csv_path": "data/stocks/MDT.csv"
+    },
+    {
+      "symbol": "MET",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6742035.312861272,
+      "median_volume": 5985800.0,
+      "csv_path": "data/stocks/MET.csv"
+    },
+    {
+      "symbol": "META",
+      "data_points": 2673,
+      "start_date": "2012-05-18",
+      "end_date": "2022-12-30",
+      "avg_volume": 31202449.682005238,
+      "median_volume": 23217400.0,
+      "csv_path": "data/stocks/META.csv"
+    },
+    {
+      "symbol": "MGM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 9287882.153179191,
+      "median_volume": 7584950.0,
+      "csv_path": "data/stocks/MGM.csv"
+    },
+    {
+      "symbol": "MKC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1462986.4884393064,
+      "median_volume": 1228700.0,
+      "csv_path": "data/stocks/MKC.csv"
+    },
+    {
+      "symbol": "MMC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2053699.494219653,
+      "median_volume": 1847850.0,
+      "csv_path": "data/stocks/MMC.csv"
+    },
+    {
+      "symbol": "MMM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3298628.0653901733,
+      "median_volume": 2795470.5,
+      "csv_path": "data/stocks/MMM.csv"
+    },
+    {
+      "symbol": "MNST",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7374396.026011561,
+      "median_volume": 5713900.0,
+      "csv_path": "data/stocks/MNST.csv"
+    },
+    {
+      "symbol": "MO",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8469300.108381502,
+      "median_volume": 7448000.0,
+      "csv_path": "data/stocks/MO.csv"
+    },
+    {
+      "symbol": "MOS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4688387.35549133,
+      "median_volume": 4124500.0,
+      "csv_path": "data/stocks/MOS.csv"
+    },
+    {
+      "symbol": "MPC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6280888.692196532,
+      "median_volume": 5681200.0,
+      "csv_path": "data/stocks/MPC.csv"
+    },
+    {
+      "symbol": "MRK",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11796955.060693642,
+      "median_volume": 10547386.5,
+      "csv_path": "data/stocks/MRK.csv"
+    },
+    {
+      "symbol": "MRNA",
+      "data_points": 1024,
+      "start_date": "2018-12-07",
+      "end_date": "2022-12-30",
+      "avg_volume": 9765151.7578125,
+      "median_volume": 6063250.0,
+      "csv_path": "data/stocks/MRNA.csv"
+    },
+    {
+      "symbol": "MS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 12624187.536127167,
+      "median_volume": 10493200.0,
+      "csv_path": "data/stocks/MS.csv"
+    },
+    {
+      "symbol": "MSFT",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 33666403.070809245,
+      "median_volume": 29524650.0,
+      "csv_path": "data/stocks/MSFT.csv"
+    },
+    {
+      "symbol": "MSI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1340447.0375722544,
+      "median_volume": 1090500.0,
+      "csv_path": "data/stocks/MSI.csv"
+    },
+    {
+      "symbol": "MTCH",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2870821.8511560694,
+      "median_volume": 2323588.5,
+      "csv_path": "data/stocks/MTCH.csv"
+    },
+    {
+      "symbol": "MU",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 28205841.076589596,
+      "median_volume": 24624400.0,
+      "csv_path": "data/stocks/MU.csv"
+    },
+    {
+      "symbol": "NCLH",
+      "data_points": 2506,
+      "start_date": "2013-01-18",
+      "end_date": "2022-12-30",
+      "avg_volume": 8411093.814844374,
+      "median_volume": 1850900.0,
+      "csv_path": "data/stocks/NCLH.csv"
+    },
+    {
+      "symbol": "NDAQ",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3148345.809248555,
+      "median_volume": 2665900.0,
+      "csv_path": "data/stocks/NDAQ.csv"
+    },
+    {
+      "symbol": "NEE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8171562.64450867,
+      "median_volume": 7381800.0,
+      "csv_path": "data/stocks/NEE.csv"
+    },
+    {
+      "symbol": "NEM",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7462559.790462428,
+      "median_volume": 6658900.0,
+      "csv_path": "data/stocks/NEM.csv"
+    },
+    {
+      "symbol": "NFLX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 15148072.72398844,
+      "median_volume": 10095500.0,
+      "csv_path": "data/stocks/NFLX.csv"
+    },
+    {
+      "symbol": "NI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4106176.833453757,
+      "median_volume": 3554419.0,
+      "csv_path": "data/stocks/NI.csv"
+    },
+    {
+      "symbol": "NKE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7961498.410404624,
+      "median_volume": 6955400.0,
+      "csv_path": "data/stocks/NKE.csv"
+    },
+    {
+      "symbol": "NOC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1123675.578034682,
+      "median_volume": 997100.0,
+      "csv_path": "data/stocks/NOC.csv"
+    },
+    {
+      "symbol": "NOW",
+      "data_points": 2644,
+      "start_date": "2012-06-29",
+      "end_date": "2022-12-30",
+      "avg_volume": 1664902.3827534039,
+      "median_volume": 1433250.0,
+      "csv_path": "data/stocks/NOW.csv"
+    },
+    {
+      "symbol": "NRG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4167258.7427745666,
+      "median_volume": 3535650.0,
+      "csv_path": "data/stocks/NRG.csv"
+    },
+    {
+      "symbol": "NSC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1810571.1343930636,
+      "median_volume": 1579050.0,
+      "csv_path": "data/stocks/NSC.csv"
+    },
+    {
+      "symbol": "NTAP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3510996.2427745666,
+      "median_volume": 2775250.0,
+      "csv_path": "data/stocks/NTAP.csv"
+    },
+    {
+      "symbol": "NTRS",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1163138.87283237,
+      "median_volume": 1033150.0,
+      "csv_path": "data/stocks/NTRS.csv"
+    },
+    {
+      "symbol": "NUE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2519947.0014450867,
+      "median_volume": 2269100.0,
+      "csv_path": "data/stocks/NUE.csv"
+    },
+    {
+      "symbol": "NVDA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 449638772.7601156,
+      "median_volume": 391752000.0,
+      "csv_path": "data/stocks/NVDA.csv"
+    },
+    {
+      "symbol": "NWSA",
+      "data_points": 2402,
+      "start_date": "2013-06-19",
+      "end_date": "2022-12-30",
+      "avg_volume": 3127802.3730224813,
+      "median_volume": 2600650.0,
+      "csv_path": "data/stocks/NWSA.csv"
+    },
+    {
+      "symbol": "NXPI",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3347710.9465317917,
+      "median_volume": 2672800.0,
+      "csv_path": "data/stocks/NXPI.csv"
+    },
+    {
+      "symbol": "O",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2344550.5046965317,
+      "median_volume": 1939334.0,
+      "csv_path": "data/stocks/O.csv"
+    },
+    {
+      "symbol": "ODFL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1713017.9010115606,
+      "median_volume": 1485150.0,
+      "csv_path": "data/stocks/ODFL.csv"
+    },
+    {
+      "symbol": "OKE",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2579172.8796965317,
+      "median_volume": 2144400.0,
+      "csv_path": "data/stocks/OKE.csv"
+    },
+    {
+      "symbol": "OMC",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 1828204.1184971097,
+      "median_volume": 1611450.0,
+      "csv_path": "data/stocks/OMC.csv"
+    },
+    {
+      "symbol": "ON",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 6602440.498554913,
+      "median_volume": 5905300.0,
+      "csv_path": "data/stocks/ON.csv"
+    },
+    {
+      "symbol": "ORCL",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 15571921.459537573,
+      "median_volume": 13227450.0,
+      "csv_path": "data/stocks/ORCL.csv"
+    },
+    {
+      "symbol": "ORLY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 11784741.329479769,
+      "median_volume": 9621000.0,
+      "csv_path": "data/stocks/ORLY.csv"
+    },
+    {
+      "symbol": "OTIS",
+      "data_points": 703,
+      "start_date": "2020-03-19",
+      "end_date": "2022-12-30",
+      "avg_volume": 2598606.9701280226,
+      "median_volume": 2201300.0,
+      "csv_path": "data/stocks/OTIS.csv"
+    },
+    {
+      "symbol": "OXY",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 10490702.923771676,
+      "median_volume": 5489850.0,
+      "csv_path": "data/stocks/OXY.csv"
+    },
+    {
+      "symbol": "PANW",
+      "data_points": 2630,
+      "start_date": "2012-07-20",
+      "end_date": "2022-12-30",
+      "avg_volume": 8537150.038022814,
+      "median_volume": 7102100.0,
+      "csv_path": "data/stocks/PANW.csv"
+    },
+    {
+      "symbol": "PARA",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 7857240.823699422,
+      "median_volume": 5539050.0,
+      "csv_path": "data/stocks/PARA.csv"
+    },
+    {
+      "symbol": "PAYX",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2088329.2630057803,
+      "median_volume": 1829000.0,
+      "csv_path": "data/stocks/PAYX.csv"
+    },
+    {
+      "symbol": "PCAR",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 3002724.0606936417,
+      "median_volume": 2683950.0,
+      "csv_path": "data/stocks/PCAR.csv"
+    },
+    {
+      "symbol": "PCG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 8495739.01734104,
+      "median_volume": 3985250.0,
+      "csv_path": "data/stocks/PCG.csv"
+    },
+    {
+      "symbol": "PEG",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 2878434.2124277456,
+      "median_volume": 2625300.0,
+      "csv_path": "data/stocks/PEG.csv"
+    },
+    {
+      "symbol": "PEP",
+      "data_points": 2768,
+      "start_date": "2012-01-03",
+      "end_date": "2022-12-30",
+      "avg_volume": 4845887.35549133,
+      "median_volume": 4467700.0,
+      "csv_path": "data/stocks/PEP.csv"
+    }
+  ]
+}
