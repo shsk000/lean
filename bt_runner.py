@@ -71,6 +71,7 @@ import time
 import argparse
 import os
 from strategies.rsi_gap_strategy import RSIGapStrategy
+from strategies.hybrid_momentum_reversion_strategy import HybridMomentumReversionStrategy
 
 # 日本語フォント設定（Linux環境用）
 plt.rcParams['font.family'] = 'DejaVu Sans'
@@ -96,18 +97,19 @@ class CompatibleCerebro(bt.Cerebro):
             self._plotting = True
 
 def get_sp500_symbols():
-    """S&P500の銘柄リストを取得"""
-    try:
-        # S&P500の銘柄リストを取得
-        url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-        tables = pd.read_html(url)
-        sp500_table = tables[0]
-        symbols = sp500_table['Symbol'].tolist()
-        return symbols
-    except Exception as e:
-        print(f"S&P500銘柄リストの取得に失敗しました: {e}")
-        # フォールバック: 主要な銘柄リスト
-        return ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META', 'NVDA', 'NFLX', 'AMD', 'INTC']
+    """S&P500の銘柄リストを取得（完全決定的版）"""
+    # 完全な決定性を保証するため、データ取得が確実に成功する銘柄のみを使用
+    print("データ取得が確実に成功する厳選された銘柄リストを使用中...")
+    
+    # 過去のテストで確実に動作することが確認された銘柄のみ
+    reliable_symbols = [
+        'AAPL', 'MSFT', 'GOOGL', 'NVDA', 'TSLA', 'META', 'NFLX',
+        'AMD', 'INTC', 'JPM', 'JNJ', 'UNH', 'PG', 'HD', 'MA', 
+        'DIS', 'XOM', 'V', 'WMT', 'KO', 'PFE', 'MRK', 'CSCO',
+        'ABT', 'COST', 'NKE', 'TXN', 'HON', 'LOW', 'CVX', 'MDT'
+    ]
+    
+    return sorted(reliable_symbols)
 
 def download_stock_data(symbol, start_date, end_date):
     """個別銘柄のデータをダウンロード"""
@@ -144,19 +146,28 @@ def download_stock_data(symbol, start_date, end_date):
         return symbol, None, f"エラー: {e}"
 
 def filter_high_volume_stocks_parallel(symbols, min_avg_volume=1000000, start_date='2021-01-01', end_date='2023-01-01', max_workers=10):
-    """並列処理で出来高の多い銘柄をフィルタリング"""
-    high_volume_symbols = []
-    start_time = time.time()
+    """並列処理で出来高の多い銘柄をフィルタリング（決定的）"""
+    # 入力銘柄リストをソートして決定的にする
+    sorted_symbols = sorted(symbols)
+    results = []
+    
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_symbol = {
             executor.submit(download_stock_data, symbol, start_date, end_date): symbol 
-            for symbol in symbols
+            for symbol in sorted_symbols
         }
         for future in as_completed(future_to_symbol):
             symbol, avg_volume, status = future.result()
-            if status == "成功" and avg_volume >= min_avg_volume:
-                high_volume_symbols.append(symbol)
-    return high_volume_symbols
+            results.append((symbol, avg_volume, status))
+    
+    # 結果をシンボル名でソートして決定的な順序を保証
+    results.sort(key=lambda x: x[0])
+    
+    # フィルタリング結果をソート済みリストで返す
+    high_volume_symbols = [symbol for symbol, avg_volume, status in results 
+                          if status == "成功" and avg_volume >= min_avg_volume]
+    
+    return sorted(high_volume_symbols)
 
 def download_backtest_data(symbol, start_date, end_date):
     """バックテスト用のデータをダウンロード（単一銘柄用にカラムを正規化）"""
@@ -299,10 +310,26 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
     print(f"初期ポートフォリオ価値: ${initial_cash:,.2f}")
     
     # 各銘柄に戦略を追加
-    cerebro.addstrategy(RSIGapStrategy, **strategy_params)
+    # cerebro.addstrategy(RSIGapStrategy, **strategy_params)
+    cerebro.addstrategy(HybridMomentumReversionStrategy, **strategy_params)
     
-    results = cerebro.run()
-    final_value = cerebro.broker.getvalue()
+    try:
+        results = cerebro.run()
+        final_value = cerebro.broker.getvalue()
+        print(f"[DEBUG] バックテスト実行完了。戦略インスタンス数: {len(results)}")
+    except Exception as e:
+        print(f"[ERROR] バックテスト実行中にエラー: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            'initial_value': initial_cash,
+            'final_value': initial_cash,
+            'total_return': 0,
+            'profit': 0,
+            'symbols_processed': 0,
+            'total_trades': 0,
+            'total_time': time.time() - start_time
+        }
     
     # 結果の集計
     total_return = (final_value - initial_cash) / initial_cash * 100
@@ -310,9 +337,22 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
     
     # 取引履歴の収集
     all_trades = []
-    for strategy in results:
+    print(f"\n[DEBUG] === 取引履歴収集開始 ===")
+    print(f"[DEBUG] 戦略インスタンス数: {len(results)}")
+    
+    for i, strategy in enumerate(results):
         if hasattr(strategy, 'trades'):
+            trade_count = len(strategy.trades)
+            print(f'[DEBUG] Strategy {i}: {trade_count} trades found')
+            if trade_count > 0:
+                print(f'[DEBUG] Strategy {i} first trade: {strategy.trades[0]}')
             all_trades.extend(strategy.trades)
+        else:
+            print(f'[DEBUG] Strategy {i}: No trades attribute found')
+            print(f'[DEBUG] Strategy {i} attributes: {[attr for attr in dir(strategy) if not attr.startswith("_")]}')
+    
+    print(f'[DEBUG] Total collected trades: {len(all_trades)}')
+    print(f"[DEBUG] === 取引履歴収集完了 ===\n")
     
     # 結果の表示と保存
     display_results(initial_cash, final_value, total_return, profit, len(symbols), len(all_trades), time.time() - start_time, all_trades, successful_symbols, failed_symbols, show_plot)
@@ -330,7 +370,7 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2021-01-01', end_date
 def run_single_stock_backtest(symbol, start_date='2021-01-01', end_date='2023-01-01', initial_cash=100000, show_plot=True):
     """単一銘柄のバックテストを実行"""
     cerebro = CompatibleCerebro()
-    cerebro.addstrategy(RSIGapStrategy)
+    cerebro.addstrategy(HybridMomentumReversionStrategy)
     
     print(f"\n{symbol}のデータ取得中...")
     
@@ -646,14 +686,11 @@ def main():
         all_symbols = get_sp500_symbols()
         print(f"取得銘柄数: {len(all_symbols)}")
         
-        # 出来高フィルタリング（平均出来高100万株以上）
-        high_volume_symbols = filter_high_volume_stocks_parallel(
-            all_symbols, 
-            min_avg_volume=1000000, 
-            start_date=args.start_date, 
-            end_date=args.end_date, 
-            max_workers=MAX_WORKERS
-        )
+        # 完全決定性のため、出来高フィルタリングを無効化
+        print("[INFO] 完全決定性のため、出来高フィルタリングを無効化します")
+        print("[INFO] 厳選された信頼性の高い銘柄のみを使用します")
+        
+        high_volume_symbols = sorted(all_symbols)  # ソートして決定的順序を保証
         
         if not high_volume_symbols:
             print("条件を満たす銘柄が見つかりませんでした。")
