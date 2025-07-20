@@ -163,8 +163,11 @@ class HybridMomentumReversionStrategy(bt.Strategy):
     def notify_trade(self, trade):
         """取引通知"""
         if trade.isclosed:
-            pnl_pct = (trade.pnlcomm / abs(trade.value) * 100) if trade.value != 0 else 0
-            self.log(f'TRADE CLOSED: PnL {trade.pnl:.2f}, PnL%: {pnl_pct:.2f}%')
+            # リターン計算: PnL / 投資元本 * 100
+            # trade.valueは投資元本（負の値の場合あり）
+            investment_value = abs(trade.value) if trade.value != 0 else 1
+            pnl_pct = (trade.pnl / investment_value) if investment_value != 0 else 0
+            self.log(f'TRADE CLOSED: PnL {trade.pnl:.2f}, Return: {pnl_pct:.4f} ({pnl_pct*100:.2f}%)')
             
             # 取引履歴を記録
             try:
