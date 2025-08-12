@@ -3,11 +3,47 @@
 """
 import backtrader as bt
 import time
+import importlib
+import os
 from data_loader import LocalDataLoader
 from strategies.hybrid_momentum_reversion_strategy import HybridMomentumReversionStrategy
 from strategies.us_short_term import USShortTermDesigner
 from statistics_calculator import display_results
 from file_manager import ensure_output_dir
+
+
+def get_strategy_class(strategy_name):
+    """戦略名から戦略クラスを動的に読み込む"""
+    try:
+        # strategies/配下のファイル名から戦略を検索
+        strategy_module = importlib.import_module(f'strategies.{strategy_name}')
+        
+        # モジュール内の戦略クラスを検索
+        for attr_name in dir(strategy_module):
+            attr = getattr(strategy_module, attr_name)
+            if (isinstance(attr, type) and 
+                issubclass(attr, bt.Strategy) and 
+                attr != bt.Strategy):
+                return attr
+        
+        raise ValueError(f"Strategy class not found in {strategy_name}")
+        
+    except ImportError:
+        raise ValueError(f"Strategy module '{strategy_name}' not found")
+
+
+def list_available_strategies():
+    """利用可能な戦略一覧を取得"""
+    strategies_dir = 'strategies'
+    available_strategies = []
+    
+    for filename in os.listdir(strategies_dir):
+        if filename.endswith('.py') and not filename.startswith('__'):
+            strategy_name = filename[:-3]  # .py拡張子を削除
+            if strategy_name != '__init__':
+                available_strategies.append(strategy_name)
+    
+    return available_strategies
 
 
 class CompatibleCerebro(bt.Cerebro):
@@ -21,9 +57,28 @@ class CompatibleCerebro(bt.Cerebro):
             self._plotting = True
 
 
-def run_multi_stock_backtest_parallel(symbols, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, max_workers=10, show_plot=True):
+def run_multi_stock_backtest_parallel(symbols, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, max_workers=10, show_plot=True, strategy_name='hybrid_momentum_reversion_strategy'):
     """各銘柄を個別に独立したキャッシュで実行"""
     start_time = time.time()
+
+    # 戦略クラスを動的に読み込み
+    try:
+        strategy_class = get_strategy_class(strategy_name)
+        print(f"使用戦略: {strategy_class.__name__}")
+    except ValueError as e:
+        print(f"戦略読み込みエラー: {e}")
+        available = list_available_strategies()
+        print(f"利用可能な戦略: {available}")
+        return {
+            'initial_value': 0,
+            'final_value': 0,
+            'total_return': 0,
+            'profit': 0,
+            'symbols_processed': 0,
+            'total_trades': 0,
+            'total_time': 0,
+            'trades': []
+        }
 
     # 出力ディレクトリの作成
     ensure_output_dir()
@@ -55,7 +110,7 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2012-01-01', end_date
             cerebro.adddata(data_feed)
 
             # 戦略追加
-            cerebro.addstrategy(HybridMomentumReversionStrategy)
+            cerebro.addstrategy(strategy_class)
 
             # バックテスト実行
             results = cerebro.run()
@@ -127,13 +182,23 @@ def run_multi_stock_backtest_parallel(symbols, start_date='2012-01-01', end_date
     }
 
 
-def run_single_stock_backtest(symbol, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, show_plot=True):
+def run_single_stock_backtest(symbol, start_date='2012-01-01', end_date='2022-12-31', initial_cash=100000, show_plot=True, strategy_name='hybrid_momentum_reversion_strategy'):
     """単一銘柄のバックテストを実行"""
     from statistics_calculator import display_single_stock_results
 
+    # 戦略クラスを動的に読み込み
+    try:
+        strategy_class = get_strategy_class(strategy_name)
+        print(f"使用戦略: {strategy_class.__name__}")
+    except ValueError as e:
+        print(f"戦略読み込みエラー: {e}")
+        available = list_available_strategies()
+        print(f"利用可能な戦略: {available}")
+        return None
+
     cerebro = CompatibleCerebro()
 
-    cerebro.addstrategy(HybridMomentumReversionStrategy)
+    cerebro.addstrategy(strategy_class)
 
     print(f"\n{symbol}のデータ取得中...")
 

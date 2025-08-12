@@ -8,6 +8,11 @@
 デフォルトではHybridMomentumReversionStrategyを使用しますが、
 strategies/ディレクトリに新しい戦略クラスを追加し、差し替えも容易です。
 
+戦略の変更方法:
+--strategy STRATEGY_NAME で任意の戦略を指定できます。
+例: --strategy rsi_gap_strategy
+    --strategy hybrid_momentum_reversion_strategy
+
 実行方法:
 --------
 
@@ -81,6 +86,8 @@ def main():
     parser.add_argument('--start-date', type=str, default='2012-01-01', help='開始日（デフォルト: 2012-01-01）')
     parser.add_argument('--end-date', type=str, default='2022-12-31', help='終了日（デフォルト: 2022-12-31）')
     parser.add_argument('--limit', type=int, default=None, help='テストする最大銘柄数（例: 20）')
+    parser.add_argument('--strategy', type=str, default='hybrid_momentum_reversion_strategy', 
+                       help='使用する戦略名（例: rsi_gap_strategy, hybrid_momentum_reversion_strategy）')
     args = parser.parse_args()
     
     # 出力ディレクトリの確保
@@ -98,7 +105,8 @@ def main():
             args.single, 
             start_date=args.start_date, 
             end_date=args.end_date, 
-            show_plot=not args.no_plot
+            show_plot=not args.no_plot,
+            strategy_name=args.strategy
         )
         
         if results:
@@ -155,7 +163,8 @@ def main():
             start_date=args.start_date,
             end_date=args.end_date,
             max_workers=MAX_WORKERS, 
-            show_plot=not args.no_plot
+            show_plot=not args.no_plot,
+            strategy_name=args.strategy
         )
         
         # 結果をCSVに保存
