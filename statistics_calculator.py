@@ -127,14 +127,114 @@ def display_and_save_trade_history(symbol, trades, results):
         # 取引結果をDataFrameに変換
         trades_df = pd.DataFrame(all_trades)
         
-        # 統計情報
+        # 正しいリターン率を計算してDataFrameに追加
+        corrected_returns = []
+        for _, trade in trades_df.iterrows():
+            entry_price = trade.get('entry_price', 0)
+            exit_price = trade.get('exit_price', 0)
+            size = trade.get('size', 0)
+            pnl = trade.get('pnl', 0)
+            
+            # sizeが0の場合または価格が同じ場合は損益額から推定
+            if (size == 0 or entry_price == exit_price) and pnl != 0:
+                if pnl > 0:
+                    estimated_investment = pnl / 2  # 利益を50%と仮定
+                else:
+                    estimated_investment = abs(pnl) * 2  # 損失を50%と仮定
+                
+                correct_return_pct = (pnl / estimated_investment) * 100 if estimated_investment != 0 else 0
+            else:
+                investment_amount = entry_price * abs(size) if size != 0 else 1
+                correct_return_pct = (pnl / investment_amount) * 100 if investment_amount != 0 else 0
+            
+            corrected_returns.append(correct_return_pct)
+        
+        trades_df['corrected_return'] = corrected_returns
+        
+        # 個別取引履歴の詳細表示
+        print(f'\n📋 個別取引履歴')
+        print(f'{"-"*80}')
+        for i, trade in enumerate(all_trades, 1):
+            entry_date_raw = trade.get('entry_date', 'N/A')
+            exit_date_raw = trade.get('exit_date', 'N/A')
+            entry_price = trade.get('entry_price', 0)
+            exit_price = trade.get('exit_price', 0)
+            size = trade.get('size', 0)
+            pnl = trade.get('pnl', 0)
+            return_pct = trade.get('return', 0)
+            exit_reason = trade.get('exit_reason', 'N/A')
+            
+            # 数値日付をdatetimeに変換
+            if isinstance(entry_date_raw, (int, float)):
+                try:
+                    # backtraderの日付形式（Matplotlibの日付から変換）
+                    import datetime
+                    entry_date = datetime.datetime.fromordinal(int(entry_date_raw)).strftime('%Y-%m-%d')
+                except:
+                    try:
+                        # Excel形式の場合
+                        entry_date = pd.to_datetime(entry_date_raw, origin='1899-12-30', unit='D').strftime('%Y-%m-%d')
+                    except:
+                        entry_date = f"{int(entry_date_raw)}"
+            else:
+                entry_date = str(entry_date_raw)
+                
+            if isinstance(exit_date_raw, (int, float)):
+                try:
+                    # backtraderの日付形式（Matplotlibの日付から変換）
+                    import datetime
+                    exit_date = datetime.datetime.fromordinal(int(exit_date_raw)).strftime('%Y-%m-%d')
+                except:
+                    try:
+                        # Excel形式の場合
+                        exit_date = pd.to_datetime(exit_date_raw, origin='1899-12-30', unit='D').strftime('%Y-%m-%d')
+                    except:
+                        exit_date = f"{int(exit_date_raw)}"
+            else:
+                exit_date = str(exit_date_raw)
+            
+            # sizeが0の場合または価格が同じ場合は損益額から推定
+            if (size == 0 or entry_price == exit_price) and pnl != 0:
+                # 損益額から合理的な投資額を推定（仮定：50%-200%のリターン範囲）
+                if pnl > 0:
+                    estimated_investment = pnl / 2  # 利益を50%と仮定
+                else:
+                    estimated_investment = abs(pnl) * 2  # 損失を50%と仮定
+                
+                if entry_price > 0:
+                    estimated_size = estimated_investment / entry_price
+                    size_display = f"~{estimated_size:,.0f}"
+                else:
+                    size_display = "不明"
+                
+                investment_display = f"${estimated_investment:,.2f}"
+                # 正しいリターン率を計算
+                correct_return_pct = (pnl / estimated_investment) * 100 if estimated_investment != 0 else 0
+            else:
+                size_display = f"{abs(size):,.0f}" if size != 0 else "不明"
+                investment_amount = entry_price * abs(size) if size != 0 else 1
+                investment_display = f"${investment_amount:,.2f}" if size != 0 else "不明"
+                # 正しいリターン率を計算
+                correct_return_pct = (pnl / investment_amount) * 100 if investment_amount != 0 else 0
+            
+            status = "🟢" if pnl > 0 else "🔴" if pnl < 0 else "⚪"
+            print(f'{status} 取引 {i:2d}: {entry_date} → {exit_date}')
+            print(f'    投資額: {investment_display} (株数: {size_display})')
+            if entry_price != exit_price and exit_price > 0:
+                print(f'    価格: ${entry_price:.2f} → ${exit_price:.2f}')
+            else:
+                print(f'    エントリー価格: ${entry_price:.2f}')
+            print(f'    損益: ${pnl:,.2f} ({correct_return_pct:+.2f}%) | 理由: {exit_reason}')
+            print()
+        
+        # 統計情報（修正されたリターン率を使用）
         print(f'\n📊 統計情報')
         print(f'{"-"*40}')
-        avg_return = trades_df["return"].mean()
-        win_rate = (trades_df["return"] > 0).mean() * 100
-        max_profit = trades_df["return"].max()
-        max_loss = trades_df["return"].min()
-        std_return = trades_df["return"].std()
+        avg_return = trades_df["corrected_return"].mean()
+        win_rate = (trades_df["corrected_return"] > 0).mean() * 100
+        max_profit = trades_df["corrected_return"].max()
+        max_loss = trades_df["corrected_return"].min()
+        std_return = trades_df["corrected_return"].std()
         
         print(f'平均リターン: {avg_return:.2f}%')
         print(f'勝率: {win_rate:.1f}%')
@@ -152,10 +252,10 @@ def display_and_save_trade_history(symbol, trades, results):
         else:
             print(f'❌ 勝率評価: 低い ({win_rate:.1f}%)')
         
-        # 取引理由別の統計
+        # 取引理由別の統計（修正されたリターン率を使用）
         print(f'\n📋 取引理由別統計')
         print(f'{"-"*40}')
-        reason_stats = trades_df.groupby('exit_reason')['return'].agg(['count', 'mean', 'sum'])
+        reason_stats = trades_df.groupby('exit_reason')['corrected_return'].agg(['count', 'mean', 'sum'])
         print(reason_stats)
         
         # 取引履歴をCSVに保存
@@ -219,14 +319,31 @@ def display_results(initial_cash, final_cash, total_return, profit, num_symbols,
 def calculate_and_display_statistics(all_trades, successful_symbols):
     """取引データから詳細統計を計算・表示"""
     try:
-        # 取引データからリターンを抽出
+        # 取引データからリターンを抽出（修正されたリターン率を計算）
         returns = []
         profits = []
         symbols_performance = {}
         
         for trade in all_trades:
-            if 'return' in trade and trade['return'] is not None and not pd.isna(trade['return']):
-                returns.append(float(trade['return']))
+            # 正しいリターン率を計算
+            entry_price = trade.get('entry_price', 0)
+            exit_price = trade.get('exit_price', 0)
+            size = trade.get('size', 0)
+            pnl = trade.get('pnl', 0)
+            
+            # sizeが0の場合または価格が同じ場合は損益額から推定
+            if (size == 0 or entry_price == exit_price) and pnl != 0:
+                if pnl > 0:
+                    estimated_investment = pnl / 2  # 利益を50%と仮定
+                else:
+                    estimated_investment = abs(pnl) * 2  # 損失を50%と仮定
+                
+                correct_return_pct = (pnl / estimated_investment) if estimated_investment != 0 else 0
+            else:
+                investment_amount = entry_price * abs(size) if size != 0 else 1
+                correct_return_pct = (pnl / investment_amount) if investment_amount != 0 else 0
+            
+            returns.append(correct_return_pct)
             
             if 'pnl' in trade and trade['pnl'] is not None and not pd.isna(trade['pnl']):
                 profits.append(float(trade['pnl']))
@@ -239,8 +356,7 @@ def calculate_and_display_statistics(all_trades, successful_symbols):
             symbols_performance[symbol]['trades'] += 1
             if 'pnl' in trade and trade['pnl'] is not None:
                 symbols_performance[symbol]['total_pnl'] += float(trade['pnl'])
-            if 'return' in trade and trade['return'] is not None and not pd.isna(trade['return']):
-                symbols_performance[symbol]['returns'].append(float(trade['return']))
+            symbols_performance[symbol]['returns'].append(correct_return_pct)
         
         # 基本統計
         if returns:

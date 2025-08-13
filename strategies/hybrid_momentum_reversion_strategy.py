@@ -50,6 +50,9 @@ class HybridMomentumReversionStrategy(bt.Strategy):
         # 取引履歴を記録
         self.trades = []
         
+        # 取引サイズ追跡用
+        self.trade_sizes = {}
+        
         for i, data in enumerate(self.datas):
             # 長期トレンド移動平均
             trend_ma = bt.indicators.SMA(data.close, period=self.p.trend_period)
@@ -68,6 +71,9 @@ class HybridMomentumReversionStrategy(bt.Strategy):
             
             # ポジション状態
             self.position_states.append('none')  # 'long', 'cash', 'none'
+            
+            # 取引サイズ初期化
+            self.trade_sizes[data] = 0
     
     def next(self):
         """メインの売買ロジック"""
@@ -157,8 +163,12 @@ class HybridMomentumReversionStrategy(bt.Strategy):
         if order.status in [order.Completed]:
             if order.isbuy():
                 self.log(f'BUY EXECUTED: Price {order.executed.price:.2f}, Size {order.executed.size}')
+                # 買い注文実行時に取引サイズを保存
+                self.trade_sizes[order.data] = order.executed.size
             else:
                 self.log(f'SELL EXECUTED: Price {order.executed.price:.2f}, Size {order.executed.size}')
+                # 売り注文実行時にも保存（絶対値として）
+                self.trade_sizes[order.data] = abs(order.executed.size)
     
     def notify_trade(self, trade):
         """取引通知"""
@@ -170,20 +180,29 @@ class HybridMomentumReversionStrategy(bt.Strategy):
             self.log(f'TRADE CLOSED: PnL {trade.pnl:.2f}, Return: {pnl_pct:.4f} ({pnl_pct*100:.2f}%)')
             
             # 取引履歴を記録
-            try:
-                exit_price = trade.price + (trade.pnl / trade.size) if trade.size != 0 else trade.price
-            except:
-                exit_price = trade.price
-                
+            # trade.priceはaverage priceなので、実際の出口価格を現在の価格で取得
+            current_price = trade.data.close[0]
+            
+            # 保存された取引サイズを使用
+            actual_size = self.trade_sizes.get(trade.data, 0)
+            
+            # 日付を人間が読める形式に変換
+            import datetime
+            entry_date_formatted = datetime.datetime.fromordinal(int(trade.dtopen)).strftime('%Y-%m-%d')
+            exit_date_formatted = datetime.datetime.fromordinal(int(trade.dtclose)).strftime('%Y-%m-%d')
+            
+            # 正しいリターン計算：実際の価格差に基づく
+            correct_return_pct = ((current_price - trade.price) / trade.price * 100) if trade.price != 0 else 0
+            
             trade_record = {
-                'entry_date': trade.dtopen,
-                'exit_date': trade.dtclose,
+                'entry_date': entry_date_formatted,
+                'exit_date': exit_date_formatted,
                 'symbol': trade.data._name if hasattr(trade.data, '_name') else 'Unknown',
-                'entry_price': trade.price,
-                'exit_price': exit_price,
-                'size': trade.size,
+                'entry_price': trade.price,  # average entry price
+                'exit_price': current_price,  # actual exit price
+                'size': actual_size,  # 実際の取引サイズ
                 'pnl': trade.pnl,
-                'return': pnl_pct,
+                'return': correct_return_pct,  # 価格差に基づく正しいリターン
                 'exit_reason': 'strategy_exit'
             }
             self.trades.append(trade_record)
