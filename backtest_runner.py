@@ -7,7 +7,9 @@ import importlib
 import os
 from data_loader import LocalDataLoader
 from strategies.hybrid_momentum_reversion_strategy import HybridMomentumReversionStrategy
-from strategies.us_short_term import USShortTermDesigner
+from strategies.us_short_term import USShortTermDesignerDiag
+from strategies.us_short_term_improved import USShortTermImproved
+from strategies.us_short_term_optimized import USShortTermOptimized
 from statistics_calculator import display_results
 from file_manager import ensure_output_dir
 
@@ -17,17 +19,17 @@ def get_strategy_class(strategy_name):
     try:
         # strategies/配下のファイル名から戦略を検索
         strategy_module = importlib.import_module(f'strategies.{strategy_name}')
-        
+
         # モジュール内の戦略クラスを検索
         for attr_name in dir(strategy_module):
             attr = getattr(strategy_module, attr_name)
-            if (isinstance(attr, type) and 
-                issubclass(attr, bt.Strategy) and 
+            if (isinstance(attr, type) and
+                issubclass(attr, bt.Strategy) and
                 attr != bt.Strategy):
                 return attr
-        
+
         raise ValueError(f"Strategy class not found in {strategy_name}")
-        
+
     except ImportError:
         raise ValueError(f"Strategy module '{strategy_name}' not found")
 
@@ -36,13 +38,13 @@ def list_available_strategies():
     """利用可能な戦略一覧を取得"""
     strategies_dir = 'strategies'
     available_strategies = []
-    
+
     for filename in os.listdir(strategies_dir):
         if filename.endswith('.py') and not filename.startswith('__'):
             strategy_name = filename[:-3]  # .py拡張子を削除
             if strategy_name != '__init__':
                 available_strategies.append(strategy_name)
-    
+
     return available_strategies
 
 

@@ -228,22 +228,41 @@ class SymbolVarianceAnalyzer:
         return stats
     
     def _detect_outliers(self, df):
-        """外れ値を検出"""
-        Q1 = df['total_return'].quantile(0.25)
-        Q3 = df['total_return'].quantile(0.75)
-        IQR = Q3 - Q1
+        """
+        IQR（四分位範囲）法による統計的外れ値検出
         
-        lower_bound = Q1 - 1.5 * IQR
-        upper_bound = Q3 + 1.5 * IQR
+        概要:
+        - 箱ひげ図で使用される標準的な外れ値検出手法
+        - リターンデータの分布から異常に高い/低い銘柄を特定
         
+        計算方法:
+        1. Q1（第1四分位数・25%点）とQ3（第3四分位数・75%点）を算出
+        2. IQR = Q3 - Q1（中央50%のデータ範囲）
+        3. 外れ値範囲: [Q1-1.5×IQR, Q3+1.5×IQR]
+        4. この範囲外のデータを外れ値として判定
+        
+        外れ値率の意味:
+        - 0-10%: 非常に安定したパフォーマンス（戦略が全銘柄で一貫）
+        - 10-20%: 概ね安定、一部銘柄で極端な結果
+        - 20-30%: やや不安定、戦略が銘柄によって大きく異なる成果
+        - 30%+: 不安定、戦略の一貫性に課題（銘柄選択が重要）
+        """
+        Q1 = df['total_return'].quantile(0.25)    # 第1四分位数（25%点）
+        Q3 = df['total_return'].quantile(0.75)    # 第3四分位数（75%点）
+        IQR = Q3 - Q1                             # 四分位範囲（中央50%の幅）
+        
+        lower_bound = Q1 - 1.5 * IQR              # 外れ値下限（通常の範囲の下限）
+        upper_bound = Q3 + 1.5 * IQR              # 外れ値上限（通常の範囲の上限）
+        
+        # 外れ値判定: 下限未満または上限超過の銘柄
         outliers = df[(df['total_return'] < lower_bound) | (df['total_return'] > upper_bound)]
         
         return {
-            'count': len(outliers),
-            'symbols': outliers['symbol'].tolist(),
-            'returns': outliers['total_return'].tolist(),
-            'lower_bound': lower_bound,
-            'upper_bound': upper_bound
+            'count': len(outliers),                      # 外れ値銘柄数
+            'symbols': outliers['symbol'].tolist(),     # 外れ値銘柄リスト
+            'returns': outliers['total_return'].tolist(), # 外れ値リターン値
+            'lower_bound': lower_bound,                  # 正常範囲下限
+            'upper_bound': upper_bound                   # 正常範囲上限
         }
     
     def _calculate_stability_score(self, df):

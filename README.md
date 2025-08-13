@@ -110,9 +110,15 @@ python bt_runner.py --strategy hybrid_momentum_reversion_strategy
    - 利確・損切り機能付き
 
 3. **USShortTermStrategy** (`us_short_term.py`)
-   - 短期取引戦略
+   - 短期取引戦略（基本版）
    - 複数テクニカル指標の組み合わせ
    - リスク管理機能付き
+
+4. **USShortTermImproved** (`us_short_term_improved.py`)
+   - 短期取引戦略（改善版）
+   - エントリー条件の緩和とエグジット条件の多様化
+   - 固定損切り・利確機能付き
+   - 市場環境適応型パラメータ調整
 
 ## 🛠️ カスタム戦略の追加
 
@@ -120,7 +126,7 @@ python bt_runner.py --strategy hybrid_momentum_reversion_strategy
 
 1. **ファイル配置**: `strategies/` ディレクトリ内に Python ファイルを作成
 2. **クラス継承**: `backtrader.Strategy` を継承
-3. **命名規則**: 
+3. **命名規則**:
    - クラス名: PascalCase (例: `MyCustomStrategy`)
    - ファイル名: スネークケース (例: `my_custom_strategy.py`)
 
@@ -131,14 +137,14 @@ import backtrader as bt
 class MyCustomStrategy(bt.Strategy):
     params = (
         ('param1', 10),      # パラメータ定義
-        ('param2', 0.02),    
+        ('param2', 0.02),
     )
-    
+
     def __init__(self):
         # インジケータの初期化
         self.sma = bt.indicators.SMA(period=self.p.param1)
         self.trades = []     # 取引履歴記録用
-        
+
     def next(self):
         # 売買ロジック
         if not self.position:
@@ -147,7 +153,7 @@ class MyCustomStrategy(bt.Strategy):
         else:
             if self.data.close[0] < self.sma[0]:
                 self.sell()
-    
+
     def notify_trade(self, trade):
         # 取引完了時の処理
         if trade.isclosed:
@@ -172,7 +178,8 @@ lean/
 ├── strategies/                  # 取引戦略実装
 │   ├── hybrid_momentum_reversion_strategy.py
 │   ├── rsi_gap_strategy.py
-│   └── us_short_term.py
+│   ├── us_short_term.py
+│   └── us_short_term_improved.py
 └── output/                      # 実行結果出力
     ├── single_stocks/           # 単一銘柄結果
     └── multi_stocks/            # 複数銘柄結果

@@ -231,4 +231,5 @@ def _display_statistics_summary(stats_data):
     print(f"💵 **損益標準偏差**: ${stats_data['profit_std']:,.2f}")
     print(f"🏢 **銘柄別損益標準偏差**: ${stats_data['symbol_pnl_std']:,.2f}")
     print(f"⚠️ **外れ値率**: {stats_data['outlier_rate']:.1%}")
+    # 外れ値率の意味: 0-10%(安定) 10-20%(概ね安定) 20-30%(やや不安定) 30%+(課題あり)
     print(f"{'='*80}")

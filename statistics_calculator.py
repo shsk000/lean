@@ -424,18 +424,29 @@ def calculate_and_display_statistics(all_trades, successful_symbols):
                 print(f"  - 取引回数標準偏差: {np.std(symbol_trade_counts):.1f}")
         
         # 外れ値分析
+        # IQR（四分位範囲）法を使用して統計的外れ値を検出
+        # - Q1（第1四分位数・25%点）とQ3（第3四分位数・75%点）を計算
+        # - IQR = Q3 - Q1（中央50%のデータの範囲）
+        # - 外れ値判定基準: Q1-1.5×IQR未満 または Q3+1.5×IQR超過
+        # - この方法は箱ひげ図でも使用される標準的な外れ値検出手法
         if symbol_pnls and len(symbol_pnls) > 4:
-            Q1 = np.percentile(symbol_pnls, 25)
-            Q3 = np.percentile(symbol_pnls, 75)
-            IQR = Q3 - Q1
-            lower_bound = Q1 - 1.5 * IQR
-            upper_bound = Q3 + 1.5 * IQR
+            Q1 = np.percentile(symbol_pnls, 25)  # 第1四分位数（25%点）
+            Q3 = np.percentile(symbol_pnls, 75)  # 第3四分位数（75%点）
+            IQR = Q3 - Q1                       # 四分位範囲
+            lower_bound = Q1 - 1.5 * IQR        # 外れ値下限
+            upper_bound = Q3 + 1.5 * IQR        # 外れ値上限
             
+            # 外れ値銘柄を特定（下限未満または上限超過）
             outliers = [pnl for pnl in symbol_pnls if pnl < lower_bound or pnl > upper_bound]
             if outliers:
                 print(f"\n⚠️ 外れ値分析:")
                 print(f"  - 外れ値数: {len(outliers)}/{len(symbol_pnls)} 銘柄")
                 print(f"  - 外れ値率: {len(outliers)/len(symbol_pnls):.1%}")
+                # 外れ値率の意味:
+                # 0-10%: 非常に安定したパフォーマンス
+                # 10-20%: 概ね安定、一部銘柄で極端な結果  
+                # 20-30%: やや不安定、戦略が銘柄によって大きく異なる成果
+                # 30%+: 不安定、戦略の一貫性に課題あり
     
     except Exception as e:
         print(f"統計計算中にエラーが発生しました: {e}")

@@ -35,13 +35,21 @@ strategies/ディレクトリに新しい戦略クラスを追加し、差し替
 --workers N         : 並列処理数（デフォルト: 20）
 --limit             : テストする最大銘柄数（例: 20）
 
-戦略パラメータ例（HybridMomentumReversionStrategy）:
+戦略パラメータ例:
 ------------------------------
+HybridMomentumReversionStrategy:
 - トレンド期間: 200日移動平均
 - モメンタム期間: 60日
 - リバランス頻度: 20日毎
 - エントリー閾値: MA上1%
 - エグジット閾値: MA下1%
+
+USShortTermImproved:
+- 短期移動平均: 10日、長期移動平均: 30日
+- ROC期間: 10日、ATR期間: 14日
+- リスク・リワード比: 1.5:1
+- 固定損切り: -5%、固定利確: +8%
+- 見直しドローダウン: -6%
 
 出力ファイル:
 ------------
@@ -86,35 +94,35 @@ def main():
     parser.add_argument('--start-date', type=str, default='2012-01-01', help='開始日（デフォルト: 2012-01-01）')
     parser.add_argument('--end-date', type=str, default='2022-12-31', help='終了日（デフォルト: 2022-12-31）')
     parser.add_argument('--limit', type=int, default=None, help='テストする最大銘柄数（例: 20）')
-    parser.add_argument('--strategy', type=str, default='hybrid_momentum_reversion_strategy', 
+    parser.add_argument('--strategy', type=str, default='hybrid_momentum_reversion_strategy',
                        help='使用する戦略名（例: rsi_gap_strategy, hybrid_momentum_reversion_strategy）')
     args = parser.parse_args()
-    
+
     # 出力ディレクトリの確保
     ensure_output_dir()
-    
+
     # 並列処理の設定
     MAX_WORKERS = args.workers
-    
+
     if args.single:
         # 単一銘柄バックテスト
         print(f"単一銘柄バックテスト: {args.single}")
         print(f"期間: {args.start_date} から {args.end_date}")
-        
+
         results = run_single_stock_backtest(
-            args.single, 
-            start_date=args.start_date, 
-            end_date=args.end_date, 
+            args.single,
+            start_date=args.start_date,
+            end_date=args.end_date,
             show_plot=not args.no_plot,
             strategy_name=args.strategy
         )
-        
+
         if results:
             # 結果をCSVに保存
             results_df = pd.DataFrame([results])
             results_df.to_csv(os.path.join(SINGLE_STOCK_DIR, f'single_stock_{args.single}_results.csv'), index=False)
             print(f"\\n💾 結果を '{SINGLE_STOCK_DIR}/single_stock_{args.single}_results.csv' に保存しました")
-            
+
             # 最終結果の要約
             print(f"\\n{'='*60}")
             print(f'📋 最終結果要約')
@@ -128,22 +136,22 @@ def main():
             print(f'取引回数: {results["total_trades"]}回')
         else:
             print(f"\\n❌ バックテストの実行に失敗しました")
-        
+
     else:
         # 複数銘柄バックテスト
         print("S&P500銘柄リストを取得中...")
         all_symbols = get_local_symbols()
         print(f"取得銘柄数: {len(all_symbols)}")
-        
+
         # ローカルデータから高出来高銘柄を取得
         print("[INFO] ローカルデータから高出来高銘柄を使用します")
-        
+
         high_volume_symbols = get_high_volume_symbols_from_local_data(max_symbols=args.limit)
-        
+
         if not high_volume_symbols:
             print("条件を満たす銘柄が見つかりませんでした。")
             exit(1)
-        
+
         # 全銘柄でバックテストを実行
         test_symbols = high_volume_symbols
         print(f"\\nテスト対象銘柄数: {len(test_symbols)}銘柄")
@@ -159,25 +167,25 @@ def main():
 
         # バックテスト実行
         results = run_multi_stock_backtest_parallel(
-            test_symbols, 
+            test_symbols,
             start_date=args.start_date,
             end_date=args.end_date,
-            max_workers=MAX_WORKERS, 
+            max_workers=MAX_WORKERS,
             show_plot=not args.no_plot,
             strategy_name=args.strategy
         )
-        
+
         # 結果をCSVに保存
         results_df = pd.DataFrame([results])
         results_df.to_csv(os.path.join(MULTI_STOCK_DIR, 'multi_stock_backtest_results.csv'), index=False)
         print(f"\\n💾 結果を '{MULTI_STOCK_DIR}/multi_stock_backtest_results.csv' に保存しました")
-        
+
         # 取引履歴の保存
         if 'trades' in results and results['trades']:
             trades_df = pd.DataFrame(results['trades'])
             trades_df.to_csv(os.path.join(MULTI_STOCK_DIR, 'multi_stock_trades_history.csv'), index=False)
             print(f"💾 取引履歴を '{MULTI_STOCK_DIR}/multi_stock_trades_history.csv' に保存しました")
-            
+
             # 詳細統計情報をCSVとして保存
             save_detailed_statistics_to_csv(results['trades'], test_symbols)
         else:
@@ -187,18 +195,18 @@ def main():
             empty_trades_df = pd.DataFrame(columns=['entry_date', 'exit_date', 'symbol', 'entry_price', 'exit_price', 'size', 'pnl', 'return', 'exit_reason'])
             empty_trades_df.to_csv(os.path.join(MULTI_STOCK_DIR, 'multi_stock_trades_history.csv'), index=False)
             print(f"💾 空の取引履歴を '{MULTI_STOCK_DIR}/multi_stock_trades_history.csv' に保存しました")
-            
+
             # 空の統計情報を保存
             save_detailed_statistics_to_csv([], test_symbols)
-        
+
         # 最終結果の要約
         print(f"\\n{'='*60}")
         print(f'📋 最終結果要約')
         print(f'{"="*60}')
         if results['profit'] > 0:
-            print(f'✅ 複数銘柄戦略: 利益 +${results["profit"]:,.2f} (+{results["total_return"]:.2f}%)')
+            print(f'✅ 複数銘柄戦略: 利益 +${results["profit"]:,.2f} (+{results["total_return"]*100:.2f}%)')
         elif results['profit'] < 0:
-            print(f'❌ 複数銘柄戦略: 損失 -${abs(results["profit"]):,.2f} ({results["total_return"]:.2f}%)')
+            print(f'❌ 複数銘柄戦略: 損失 -${abs(results["profit"]):,.2f} ({results["total_return"]*100:.2f}%)')
         else:
             print(f'➖ 複数銘柄戦略: 損益ゼロ')
         print(f'処理銘柄数: {results["symbols_processed"]}銘柄')
